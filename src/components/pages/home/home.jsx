@@ -31,7 +31,7 @@ export default function Home() {
                                     High quality education
                                 </h2>
                                 <p>
-                                    Welcome to Banham Education Consultancy: where potential becomes reality. We offer three main services to help you or your students get ahead of the game with their education. These services are:
+                                    Welcome to Banham Education Consultancy: where potential becomes reality. We offer three main services to help students get ahead of the game with their education, and schools improve their technique. These services are:
                                 </p>
                             </td>
                         </tr>

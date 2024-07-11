@@ -76,6 +76,34 @@ div {
         height: 0;
         border: 2px solid #ddcb80; 
     }
+
+    &.fancyButtonLine {
+        width: 75%;
+        height: 10px;
+        max-width: 0%;
+        background-color: white;
+        $marginTopAndBottomFancyButton: 3vh;
+        margin-top: $marginTopAndBottomFancyButton;
+        margin-bottom: $marginTopAndBottomFancyButton;
+
+        &.top {
+            margin-right: 0;
+            transform: translate(-15%, 0);
+        }
+
+        &.bottom {
+            margin-left: 0;
+            transform: translate(18%, 0);
+        }
+
+        transition-property: max-width;
+        transition-duration: 0.75s;
+        transition-timing-function: ease;
+
+        &.shown {
+            max-width: 75%;
+        }
+    }
 }
 
 button {
@@ -86,6 +114,30 @@ button {
     max-width: 100%;
     display: block;
     background-color: transparent;
+
+    &.fancyButton {
+        padding-right: 10px;
+        padding-left: 10px;
+        $marginTopBottomFancyButton: 4vh;
+        margin-top: $marginTopBottomFancyButton;
+        margin-bottom: $marginTopBottomFancyButton;
+        max-width: 87.5%;
+        border: 3px solid #242323;
+        box-shadow: 0 0 5px 1px #f7e6a9;
+        border-radius: 10px;
+        min-height: 20vh;
+        background-color: #101010;
+
+        transition-property: transform box-shadow background-color;
+        transition-duration: 0.75s;
+        transition-timing-function: ease;
+
+        &:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 10px 3px #f1cc35;
+            background-color: #202020;
+        }
+    }
 }
 
 img {
