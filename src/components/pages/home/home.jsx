@@ -2,6 +2,7 @@ import React from 'react';
 import SmartImage from '../../multiPage/smartImage.jsx';
 import { useNavigate } from 'react-router-dom';
 import FancyButton from '../../multiPage/fancyButton.jsx';
+import { Link } from 'react-router-dom';
 
 export default function Home() {
 
@@ -64,6 +65,39 @@ export default function Home() {
                                         Support for schools
                                     </h3>
                                 </FancyButton>
+                            </td>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+
+            <div className="dividerLine"></div>
+
+            {/*our blog section*/}
+            <div>
+                <h1>
+                    Our blog
+                </h1>
+                <table>
+                    <thead>
+                        <tr>
+                            <td style={{width: '60%'}}>
+                                <h2>
+                                    Keep caught up with us
+                                </h2>
+                                <p>
+                                    BLOG__DESCRIPTION
+                                    <br/>Nostrud ullamco sunt cillum incididunt in duis irure nulla excepteur duis id nisi labore cillum.Incididunt commodo excepteur fugiat nostrud duis sit consectetur duis sint officia et deserunt.Est dolor sit esse cillum excepteur veniam non dolor nulla est voluptate mollit.In do sint amet aliquip.Dolore ipsum duis tempor esse.
+                                </p>
+
+                                <Link to="/blog">
+                                    <h3>
+                                        View our blog →
+                                    </h3>
+                                </Link>
+                            </td>
+                            <td>
+                                <SmartImage imageURL='IMAGE_URL' imageClasses={'mainImage'} />
                             </td>
                         </tr>
                     </thead>
