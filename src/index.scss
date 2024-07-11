@@ -160,6 +160,8 @@ img {
 table {
     table-layout: fixed;
     width: 100%;
+    max-width: 90vw;
+    margin: auto;
 }
 
 .noVerticalSpacing {

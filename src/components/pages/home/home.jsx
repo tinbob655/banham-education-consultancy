@@ -21,7 +21,7 @@ export default function Home() {
 
             {/*welcome section*/}
             <div>
-                <table style={{width: '90%'}}>
+                <table style={{width: '90%', margin: 'unset'}}>
                     <thead>
                         <tr>
                             <td>
@@ -42,7 +42,7 @@ export default function Home() {
 
             {/*three main services section*/}
             <div>
-                <table>
+                <table style={{maxWidth: 'unset'}}>
                     <thead>
                         <tr>
                             <td>
