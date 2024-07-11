@@ -25,6 +25,32 @@ function FancyButton({children, onClick}) {
 
     }, [buttonIds]);
 
+    let showDivs = null;
+    let hideDivs = null;
+
+    function buttonHovered() {
+        if (hideDivs) {
+            clearTimeout(hideDivs);
+        };
+
+        divs[0].classList.add('shown');
+
+        showDivs = setTimeout(() => {
+            divs[1].classList.add('shown');
+        }, 50);
+    };
+
+    function buttonUnhovered() {
+        if (showDivs) {
+            clearTimeout(showDivs);
+        };
+
+        divs[1].classList.remove('shown');
+        hideDivs = setTimeout(() => {
+            divs[0].classList.remove('shown');
+        }, 50);
+    };
+
     return(
         <React.Fragment>
             <button type="button" onClick={() => {onClick()}} onMouseEnter={buttonHovered} onMouseLeave={buttonUnhovered} className="fancyButton">
@@ -34,20 +60,6 @@ function FancyButton({children, onClick}) {
             </button>
         </React.Fragment>
     );
-
-    function buttonHovered() {
-        divs[0].classList.add('shown');
-        setTimeout(() => {
-            divs[1].classList.add('shown');
-        }, 50);
-    };
-
-    function buttonUnhovered() {
-        divs[1].classList.remove('shown');
-        setTimeout(() => {
-            divs[0].classList.remove('shown');
-        }, 50);
-    };
 };
 
 export default memo(FancyButton);
