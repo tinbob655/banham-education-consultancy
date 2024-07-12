@@ -8,6 +8,7 @@ import SupportForSchools from './components/pages/supportForSchools/supportForSc
 import Resources from './components/pages/resources/resources.jsx';
 import Blog from './components/pages/blog/blog.jsx';
 import Home from './components/pages/home/home.jsx';
+import About from './components/pages/about/about.jsx';
 
 class AllRoutes extends Component {
 
@@ -27,6 +28,7 @@ class AllRoutes extends Component {
             supportForSchools: <SupportForSchools/>,
             resources: <Resources/>,
             blog: <Blog/>,
+            about: <About/>,
         };
         let routeHTML = [];
 

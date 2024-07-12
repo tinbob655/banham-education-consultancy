@@ -1,6 +1,6 @@
 import React, {useState, memo, useEffect} from 'react';
 
-function FancyButton({children, onClick}) {
+function FancyButton({children, onClick, short}) {
 
     //random ids for the line divs (don't want these being the same 2 times)
     function returnRand() {
@@ -53,10 +53,10 @@ function FancyButton({children, onClick}) {
 
     return(
         <React.Fragment>
-            <button type="button" onClick={() => {onClick()}} onMouseEnter={buttonHovered} onMouseLeave={buttonUnhovered} className="fancyButton">
-                <div className="fancyButtonLine top" id={buttonIds[0]}></div>
+            <button type="button" onClick={() => {onClick()}} onMouseEnter={buttonHovered} onMouseLeave={buttonUnhovered} className="fancyButton" style={short ? {marginTop: '10px', marginBottom: '20px'} : {}} >
+                <div className="fancyButtonLine top" id={buttonIds[0]} style={short ? {marginTop: '10px', marginBottom: '10px'} : {}} ></div>
                 {children}
-                <div className="fancyButtonLine bottom" id={buttonIds[1]}></div>
+                <div className="fancyButtonLine bottom" id={buttonIds[1]} style={short ? {marginTop: '10px', marginBottom: '10px'} : {}} ></div>
             </button>
         </React.Fragment>
     );

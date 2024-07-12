@@ -104,7 +104,18 @@ div {
             max-width: 75%;
         }
     }
+
+    &#headerWrapper {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        z-index: 99;
+        background-color: #000000;
+    }
 }
+
 
 button {
     margin: auto;
@@ -164,7 +175,7 @@ table {
     margin: auto;
 }
 
-.noVerticalSpacing {
+.noVerticalSpacing{
     margin-top: 0;
     padding-top: 0;
     margin-bottom: 0;

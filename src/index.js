@@ -4,6 +4,7 @@ import { firebaseInit } from './firebase.js';
 import { Analytics } from "@vercel/analytics/react"
 import AllRoutes from './routes.jsx';
 import { BrowserRouter } from 'react-router-dom';
+import Header from './components/multiPage/header.jsx';
 import './index.scss';
 
 firebaseInit();
@@ -13,7 +14,11 @@ root.render(
   <BrowserRouter>
     <React.StrictMode>
 
-      <AllRoutes />
+      <Header/>
+      {/*main page*/}
+      <div style={{marginTop: '200px'}}>
+        <AllRoutes/>
+      </div>
       <Analytics/>
 
     </React.StrictMode>
