@@ -1,5 +1,6 @@
 import React from 'react';
 import SmartImage from '../../multiPage/smartImage.jsx';
+import InterestedGetInTouchHere from '../../multiPage/interestedGetInTouchHereButton.jsx';
 
 export default function Headstarter() {
     return(
@@ -13,7 +14,7 @@ export default function Headstarter() {
 
             <div className="dividerLine"></div>
 
-            {/*dscription section*/}
+            {/*description section*/}
             <table>
                 <thead>
                     <tr>
@@ -29,11 +30,7 @@ export default function Headstarter() {
                                 Adipisicing in nisi elit amet officia.Laboris tempor non enim nostrud tempor irure commodo duis culpa proident.Sint anim pariatur pariatur nisi minim magna proident magna nostrud.Cillum dolore consectetur mollit anim ad amet irure aliquip veniam et qui.Et adipisicing dolor reprehenderit eu excepteur est sunt.
                             </p>
 
-                            <a href="mailto:DJB@northgate.suffolk.sch.uk">
-                                <h3>
-                                    Interested? Get in touch here →
-                                </h3>
-                            </a>
+                            <InterestedGetInTouchHere/>
                         </td>
                     </tr>
                 </thead>

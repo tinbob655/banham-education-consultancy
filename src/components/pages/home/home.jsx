@@ -73,6 +73,31 @@ export default function Home() {
 
             <div className="dividerLine"></div>
 
+            {/*subjects we offer section*/}
+            <div>
+                <table>
+                    <thead>
+                        <tr>
+                            <td style={{width: '60%'}}>
+                                <h2>
+                                    What's on offer?
+                                </h2>
+                                <p>
+                                    We offer a wide and ever-expanding range of subjects at both an A-Level and GCSE level. These include:
+                                    <br/>
+                                    Maths, English, French, Spanish, Psychology, history and law
+                                </p>
+                            </td>
+                            <td>
+                                <SmartImage imageURL='SUBJECTS_WE_OFFER ' imageClasses="mainImage" />
+                            </td>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+
+            <div className="dividerLine"></div>
+
             {/*our blog section*/}
             <div>
                 <h1>
@@ -81,6 +106,10 @@ export default function Home() {
                 <table>
                     <thead>
                         <tr>
+                            <td>
+                                <SmartImage imageURL='IMAGE_URL' imageClasses={'mainImage'} />
+                            </td>
+
                             <td style={{width: '60%'}}>
                                 <h2>
                                     Keep caught up with us
@@ -95,9 +124,6 @@ export default function Home() {
                                         View our blog →
                                     </h3>
                                 </Link>
-                            </td>
-                            <td>
-                                <SmartImage imageURL='IMAGE_URL' imageClasses={'mainImage'} />
                             </td>
                         </tr>
                     </thead>
