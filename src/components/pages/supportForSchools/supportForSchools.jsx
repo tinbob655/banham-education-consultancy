@@ -47,7 +47,7 @@ export default function SupportForSchools() {
                                     Our experience
                                 </h2>
                                 <p>
-                                    Our elite level tutors have been working in the education sector for years, and they know exactly how to deliver our content effectively. We area already working with a Rugby school and a Trust in Colchester (Essex). The students and teachers here have reviewed our programme positively and would recommend it to other schools.
+                                    Our elite level tutors have been working in the education sector for years, and they know exactly how to deliver our content effectively. We are already working with a rugby school and a trust in Colchester (Essex). The students and teachers here have reviewed our programme positively and would recommend it to other schools.
                                 </p>
                             </td>
                             <td>

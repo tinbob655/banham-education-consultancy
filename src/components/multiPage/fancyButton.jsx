@@ -53,10 +53,10 @@ function FancyButton({children, onClick, short}) {
 
     return(
         <React.Fragment>
-            <button type="button" onClick={() => {onClick()}} onMouseEnter={buttonHovered} onMouseLeave={buttonUnhovered} className="fancyButton" style={short ? {marginTop: '10px', marginBottom: '20px'} : {}} >
-                <div className="fancyButtonLine top" id={buttonIds[0]} style={short ? {marginTop: '10px', marginBottom: '10px'} : {}} ></div>
+            <button type="button" onClick={() => {onClick()}} onMouseEnter={buttonHovered} onMouseLeave={buttonUnhovered} className="fancyButton" style={short ? {marginTop: '10px', marginBottom: '20px', minHeight: 'unset'} : {}} >
+                <div className="fancyButtonLine top" id={buttonIds[0]} style={short ? {marginTop: '15px', marginBottom: '15px'} : {}} ></div>
                 {children}
-                <div className="fancyButtonLine bottom" id={buttonIds[1]} style={short ? {marginTop: '10px', marginBottom: '10px'} : {}} ></div>
+                <div className="fancyButtonLine bottom" id={buttonIds[1]} style={short ? {marginTop: '15px', marginBottom: '15px'} : {}} ></div>
             </button>
         </React.Fragment>
     );

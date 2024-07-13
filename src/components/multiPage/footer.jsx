@@ -25,7 +25,7 @@ export default function Footer() {
 
         allPages.forEach((page) => {
             pagesHTML.push(
-                <React.Fragment>=
+                <React.Fragment>
                     <Link to={`/${page[0]}`}>
                     <h3 style={{marginTop: '10px', marginBottom: '10px', paddingTop: 0, paddingBottom: 0}}>
                         {page[1]}

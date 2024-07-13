@@ -61,7 +61,7 @@ export default function Blog() {
                                 <h2>
                                     Read all about it
                                 </h2>
-                                <p>
+                                <p className="alignLeft" style={{marginLeft: '15px'}}>
                                     {blog ? blog.content : 'No blog available'}
                                 </p>
                                 <p className="alignRight noVerticalSpacing">
