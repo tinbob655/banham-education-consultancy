@@ -9,6 +9,7 @@ import Resources from './components/pages/resources/resources.jsx';
 import Blog from './components/pages/blog/blog.jsx';
 import Home from './components/pages/home/home.jsx';
 import About from './components/pages/about/about.jsx';
+import Admin from './components/pages/admin/admin.jsx';
 
 class AllRoutes extends Component {
 
@@ -29,6 +30,7 @@ class AllRoutes extends Component {
             resources: <Resources/>,
             blog: <Blog/>,
             about: <About/>,
+            admin: <Admin/>,
         };
         let routeHTML = [];
 
