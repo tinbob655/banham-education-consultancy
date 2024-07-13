@@ -159,6 +159,65 @@ export default function Home() {
                     </thead>
                 </table>
             </div>
+
+            {/*quotes from students section*/}
+            <div>
+                <table>
+                    <thead>
+                        <tr>
+                            <td>
+                                <SmartImage imageURL='QUOTES_FROM_STUDENTS' imageClasses="mainImage" />
+                            </td>
+                            <td style={{width: '60%'}}>
+                                <h2>
+                                    Our reviews
+                                </h2>
+                                <p>
+                                    We're one of the best education consultancies out there, but don't take it form us: take it form the many students who have already benefited from our upskilling sessions:
+                                </p>
+
+                                <div className="dividerLine" style={{border: '2px solid #e4d7a6'}}></div>
+                                
+                                {/*actual quotes*/}
+                                <p className="alignLeft" style={{marginBottom: 0}}>
+                                    "FIRST_QUOTE"
+                                </p>
+                                <p className="noVerticalSpacing alignLeft">
+                                    -FIRST_QUOTE_AUTHOR
+                                </p>
+
+                                <p className="alignRight" style={{marginBottom: 0}}>
+                                    "SECOND_QUOTE"
+                                </p>
+                                <p className="noVerticalSpacing alignRight">
+                                    -SECOND_QUOTE_AUTHOR
+                                </p>
+
+                                <p className="alignLeft" style={{marginBottom: 0}}>
+                                    "THIRD_QUOTE"
+                                </p>
+                                <p className="noVerticalSpacing alignLeft">
+                                    -THIRD_QUOTE_AUTHOR
+                                </p>
+
+                                <p className="alignRight" style={{marginBottom: 0}}>
+                                    "FOURTH_QUOTE"
+                                </p>
+                                <p className="noVerticalSpacing alignRight">
+                                    -FOURTH_QUOTE_AUTHOR
+                                </p>
+
+                                <p className="alignLeft" style={{marginBottom: 0}}>
+                                    "FIFTH_QUOTE"
+                                </p>
+                                <p className="noVerticalSpacing alignLeft">
+                                    -FIFTH_QUOTE_AUTHOR
+                                </p>
+                            </td>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
         </React.Fragment>
     );
 };
