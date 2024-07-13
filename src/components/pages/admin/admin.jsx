@@ -20,7 +20,7 @@ export default function Admin() {
             
             //attempt to login with the email and password
             const auth = getAuth();
-            signInWithEmailAndPassword(auth, 'BANHAM_ADMIN246810@gmail.com', 'aDm1n*F0R*bAnHaM*3dUcAt10N').then(() => {
+            signInWithEmailAndPassword(auth, emailAndPassword[0], emailAndPassword[1]).then(() => {
                 setLoggedIn('Login successful');
             });
         };
