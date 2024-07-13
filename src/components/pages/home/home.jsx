@@ -82,10 +82,14 @@ export default function Home() {
                                 <h2>
                                     What's on offer?
                                 </h2>
-                                <p>
-                                    We offer a wide and ever-expanding range of subjects at both an A-Level and GCSE level. These include:
-                                    <br/>
-                                    Maths, English, French, Spanish, Psychology, history and law
+                                <p className="alignLeft">
+                                    We offer a wide and ever-expanding range of subjects at both an A-Level and GCSE level. These include: Maths, English, French, Spanish, Psychology, History and Law.
+                                </p>
+
+                                <div className="dividerLine" style={{border: '2px solid #e4d7a6'}}></div>
+
+                                <p className="alignRight">
+                                    We also offer a selection of different programmes which are tailored to suit specific needs. These include our headstarter programme: designed to give students in years 10 and 12 a boost starting their new courses, our elite 1-to-1 programme: designed to teach students how to learn effectively rather than the content itself (a new, revolutionary idea in the education sector) and our support for schools programme: designed to upskill a large group of students at the same time.
                                 </p>
                             </td>
                             <td>
@@ -98,6 +102,32 @@ export default function Home() {
 
             <div className="dividerLine"></div>
 
+            {/*about us section*/}
+            <div>
+                <table>
+                    <thead>
+                        <tr>
+                            <td>
+                                <SmartImage imageURL="ABOUT_USE_URL" imageClasses="mainImage" />
+                            </td>
+                            <td style={{width: '60%'}}>
+                                <h2>
+                                    About us
+                                </h2>
+                                <p>
+                                    Dale Banham, the author of several leading GCSE History textbooks, leads our elite-level tutors who have been in the business of education for decades. With specialists in subjects all the way from Maths to Law, there simply isn't a reason not to choose Banham for your education.
+                                </p>
+                                <Link to="/about">
+                                    <h3>
+                                        Find out more →
+                                    </h3>
+                                </Link>
+                            </td>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+
             {/*our blog section*/}
             <div>
                 <h1>
@@ -106,10 +136,6 @@ export default function Home() {
                 <table>
                     <thead>
                         <tr>
-                            <td>
-                                <SmartImage imageURL='IMAGE_URL' imageClasses={'mainImage'} />
-                            </td>
-
                             <td style={{width: '60%'}}>
                                 <h2>
                                     Keep caught up with us
@@ -124,6 +150,10 @@ export default function Home() {
                                         View our blog →
                                     </h3>
                                 </Link>
+                            </td>
+
+                            <td>
+                                <SmartImage imageURL='IMAGE_URL' imageClasses={'mainImage'} />
                             </td>
                         </tr>
                     </thead>
