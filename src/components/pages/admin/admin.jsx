@@ -11,7 +11,6 @@ export default function Admin() {
         event.preventDefault();
         
         const emailAndPassword = [event.currentTarget.email.value, event.currentTarget.password.value];
-        console.log(emailAndPassword)
         
         if (!emailAndPassword[0] || !emailAndPassword[1]) {
             throw('No email or password');
