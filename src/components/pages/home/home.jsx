@@ -115,7 +115,7 @@ export default function Home() {
                                     About us
                                 </h2>
                                 <p>
-                                    Dale Banham, the author of several leading GCSE History textbooks, leads our elite-level tutors who have been in the business of education for decades. With specialists in subjects all the way from Maths to Law, there simply isn't a reason not to choose Banham for your education.
+                                    Dale Banham, the author of several leading GCSE History textbooks, leads our elite-level tutors who have been in the business of education for decades. With specialists in subjects all the way from Maths to Law, there simply isn't a reason not to choose Banham Education Consultancy for your development.
                                 </p>
                                 <Link to="/about">
                                     <h3>
