@@ -6,7 +6,7 @@ import Headstarter from './components/pages/headstarter/headstarter.jsx';
 import Elite1To1 from './components/pages/elite1To1/elite1To1.jsx';
 import SupportForSchools from './components/pages/supportForSchools/supportForSchools.jsx';
 import Resources from './components/pages/resources/resources.jsx';
-import Blog from './components/pages/blog/blog.jsx';
+import Blog from './components/pages/resources/blog/blog.jsx';
 import Home from './components/pages/home/home.jsx';
 import About from './components/pages/about/about.jsx';
 import Admin from './components/pages/admin/admin.jsx';

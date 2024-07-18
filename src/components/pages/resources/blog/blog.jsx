@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import SmartImage from '../../multiPage/smartImage.jsx';
+import SmartImage from '../../../multiPage/smartImage.jsx';
 import {getDoc, doc, getFirestore} from 'firebase/firestore';
 
 export default function Blog() {
@@ -65,7 +65,7 @@ export default function Blog() {
                                     {blog ? blog.content : 'No blog available'}
                                 </p>
                                 <p className="alignRight noVerticalSpacing">
-                                    {blog ? `-Last updated on: ${blog.dateEdited}` : ''}
+                                    {blog ? `-${blog.dateEdited}` : ''}
                                 </p>
                             </td>
                         </tr>

@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import Blog from '../blog/blog.jsx';
+import Blog from './blog/blog.jsx';
 import {getFirestore, getDocs, collection} from 'firebase/firestore';
 import SmartImage from '../../multiPage/smartImage.jsx';
 
