@@ -1,11 +1,12 @@
 import React, {useState} from 'react';
 import {getAuth, signInWithEmailAndPassword} from 'firebase/auth';
-import { getFirestore, updateDoc, doc } from 'firebase/firestore';
+import { getFirestore, updateDoc, doc, addDoc, collection } from 'firebase/firestore';
 
 export default function Admin() {
 
     const [loggedIn, setLoggedIn] = useState('');
     const [blogSuccessfullyAddedMessage, setBlogSuccessfullyAddedMessage] = useState('');
+    const [formSuccessfullyAddedMessage, setFormSuccessfullyAddedMessage] = useState('');
 
     function logInFormSubmitted(event) {
         event.preventDefault();
@@ -47,14 +48,31 @@ export default function Admin() {
         };
     };
 
+    async function resourcesFormSubmitted(event) {
+        event.preventDefault();
+
+        if (!event.currentTarget.name.value || !event.currentTarget.href.value || !event.currentTarget.description.value){
+            setFormSuccessfullyAddedMessage('All fields are required');
+        }
+
+        const firestore = getFirestore();
+        await addDoc(collection(firestore, 'links'), {
+            name: event.currentTarget.name.value,
+            href: event.currentTarget.href.value,
+            description: event.currentTarget.description.value,
+        });
+
+        setFormSuccessfullyAddedMessage('Resource successfully added');
+    };
+
     return (
         <React.Fragment>
             {loggedIn ? (
                 <React.Fragment>
 
-                    {/*add blog page*/}
+                    {/*add blog/resource page*/}
                     <h1 className="alignLeft">
-                        Add blog page
+                        Add blog
                     </h1>
                     <p className="alignLeft">
                         Use the below form to add a blog, the new blog will replace the old blog immediately. (Blog must be at least 10 characters long.)
@@ -67,6 +85,40 @@ export default function Admin() {
                     <form id="blogForm" onSubmit={(event) => {blogFormSubmitted(event)}}>
                         <textarea name="blog" placeholder='Enter new blog here...' style={{width: '80%'}} rows={5} />
                         <input type="submit" name="submit" value="submit" style={{display: 'block', marginTop: '5vh'}} />
+                    </form>
+
+
+
+                    <div className="dividerLine"></div>
+
+
+
+                    <h1 className="alignLeft">
+                        Add resource
+                    </h1>
+                    <p className="alignLeft">
+                        Use the below form to add a resource, this new resource will be added to the existing list of resources on the resources and blogs page
+                    </p>
+                    <p className="alignLeft">
+                        {formSuccessfullyAddedMessage}
+                    </p>
+                    <form id="resourcesForm" onSubmit={(event) => {resourcesFormSubmitted(event)}}>
+                        <p className="alignLeft">
+                            Resource name/title:
+                        </p>
+                        <input type="text" name="name" placeholder='Enter resource name/title...' style={{width: '50%'}} required />
+
+                        <p className="alignLeft">
+                            Resource description:
+                        </p>
+                        <textarea name="description" placeholder="Enter resource description..." style={{width: '80%'}} rows={5} required/>
+
+                        <p className="alignLeft">
+                            Link to resource (starting http:// or https://):
+                        </p>
+                        <input type="url" name="href" placeholder='Enter link to resource here...' style={{width: '40%'}} required />
+
+                        <input type="submit" name="submit" value="submit" className="submit" style={{display: 'block', marginTop: '5vh'}} />
                     </form>
                 </React.Fragment>
             ) : (
