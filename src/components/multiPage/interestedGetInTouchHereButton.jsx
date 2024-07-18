@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function interestedGetInTouchHere() {
     return (
-        <a href="mailto:DJB@northgate.suffolk.sch.uk">
+        <a href="mailto:dalebanham@gmail.com">
             <h3>
                 Interested? Get in touch here →
             </h3>
