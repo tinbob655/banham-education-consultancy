@@ -16,7 +16,7 @@ export default function Footer() {
                 'About Us'
             ],
             [
-                'blog',
+                'resources',
                 'Our Blog'
             ],
         ];
@@ -52,10 +52,6 @@ export default function Footer() {
             [
                 'supportForSchools',
                 'Our Schools Programme'
-            ],
-            [
-                'resources',
-                'Resources We Recommend'
             ],
         ];
 

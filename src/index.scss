@@ -198,3 +198,13 @@ table {
 .rounded {
     border-radius: 50%;
 }
+
+.growOnHover {
+    transition-property: transform;
+    transition-duration: 0.75s;
+    transition-timing-function: ease;
+
+    &:hover {
+        transform: scale(1.1);
+    }
+}

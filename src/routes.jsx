@@ -10,6 +10,7 @@ import Blog from './components/pages/blog/blog.jsx';
 import Home from './components/pages/home/home.jsx';
 import About from './components/pages/about/about.jsx';
 import Admin from './components/pages/admin/admin.jsx';
+import History from './components/pages/history/history.jsx';
 
 class AllRoutes extends Component {
 
@@ -31,6 +32,7 @@ class AllRoutes extends Component {
             blog: <Blog/>,
             about: <About/>,
             admin: <Admin/>,
+            history: <History/>,
         };
         let routeHTML = [];
 

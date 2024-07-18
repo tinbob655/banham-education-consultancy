@@ -10,52 +10,65 @@ export default function Header() {
         let headerSectionsHTML = [];
         let pages = [
             [
-                'Headstarter',
-                'headstarter',
+                'History',
+                'history',
+                'CPD',
             ],
             [
-                'Elite 1-to-1',
-                'elite1To1',
-            ],
-            [
-                'Schools',
+                'General',
                 'supportForSchools',
+                'Support for schools',
             ],
             [
-                'Blog',
-                'blog',
+                'Tutoring',
+                'elite1to1',
+                'Elite 1-to-1',
             ],
             [
                 'Home',
                 '',
+                'Our basecamp',
+            ],
+            [
+                'Students',
+                'headstarter',
+                'Improve your results',
             ],
             [
                 'Resources',
                 'resources',
+                'Blogs and links',
             ],
             [
                 'About',
                 'about',
+                'Contact us',
             ],
         ];
 
         pages.forEach((page) => {
-            let frontendName = page[0];
-            let backendName = page[1];
+            let pageData = {
+                frontendName: page[0],
+                backendName: page[1],
+                description: page[2],
+            };
 
             //make sure the current page does not show on the header
             let thisPage = window.location.href.split('/').at(-1);
-            if (thisPage != backendName) {
+            if (thisPage != pageData.backendName) {
 
                 //add this page to header html
                 headerSectionsHTML.push(
                     <React.Fragment>
                         <td>
                             <div className="headerCellWrapper">
-                                <FancyButton onClick={() => {navigate(`/${backendName}`)}} short={true}>
-                                    <h3 className="noVerticalSpacing">
-                                        {frontendName}
+                                <FancyButton onClick={() => {navigate(`/${pageData.backendName}`)}} short={true}>
+                                    <h3 className="noVerticalSpacing" style={{fontWeight: '400'}}>
+                                        {pageData.frontendName}
                                     </h3>
+                                    <p className="noVerticalSpacing" style={{color: 'white', fontSize: '20px'}}>
+                                        {pageData.description}
+                                    </p>
                                 </FancyButton>
                             </div>
                         </td>
