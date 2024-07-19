@@ -40,15 +40,22 @@ export default function Home() {
                 </table>
             </div>
 
-            {/*three main services section*/}
+            {/*four main services section*/}
             <div>
                 <table style={{maxWidth: 'unset'}}>
                     <thead>
                         <tr>
                             <td>
-                                <FancyButton onClick={() => {navigate('/headstarter')}}>
+                                <FancyButton onClick={() => {navigate('/history')}}>
                                     <h3>
-                                        Our headstarter programme
+                                        Bespoke History CPD
+                                    </h3>
+                                </FancyButton>
+                            </td>
+                            <td>
+                                <FancyButton onClick={() => {navigate('/supportForSchools')}}>
+                                    <h3>
+                                        Teaching & learning CPD
                                     </h3>
                                 </FancyButton>
                             </td>
@@ -60,9 +67,9 @@ export default function Home() {
                                 </FancyButton>
                             </td>
                             <td>
-                                <FancyButton onClick={() => {navigate('/supportForSchools')}}>
+                                <FancyButton onClick={() => {navigate('/headstarter')}}>
                                     <h3>
-                                        Support for schools
+                                        Results boosters
                                     </h3>
                                 </FancyButton>
                             </td>
