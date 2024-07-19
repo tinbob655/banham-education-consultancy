@@ -17,7 +17,7 @@ export default function Header() {
             [
                 'General',
                 'supportForSchools',
-                'Support for schools',
+                'CPD',
             ],
             [
                 'Tutoring',
@@ -32,7 +32,7 @@ export default function Header() {
             [
                 'Students',
                 'headstarter',
-                'Improve your results',
+                'Boost results',
             ],
             [
                 'Resources',
