@@ -25,7 +25,7 @@ export default function Home() {
                     <thead>
                         <tr>
                             <td>
-                                <SmartImage imagePath="logo/logoFull.png" imageClasses="mainImage" imageStyles={{height: '350px'}} />
+                                <SmartImage imagePath="logo/logoFull.png" imageClasses="mainImage" />
                             </td>
                             <td>
                                 <h2>
