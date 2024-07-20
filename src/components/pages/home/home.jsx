@@ -93,7 +93,7 @@ export default function Home() {
                                     We offer a wide and ever-expanding range of subjects at both an A-Level and GCSE level. These include: Maths, English, French, Spanish, Psychology, History and Law.
                                 </p>
 
-                                <div className="dividerLine" style={{border: '2px solid #e4d7a6'}}></div>
+                                <div className="dividerLine weakDivider"></div>
 
                                 <p className="alignRight">
                                     We also offer a selection of different programmes which are tailored to suit specific needs. These include our headstarter programme: designed to give students in years 10 and 12 a boost starting their new courses, our elite 1-to-1 programme: designed to teach students how to learn effectively rather than the content itself (a new, revolutionary idea in the education sector) and our support for schools programme: designed to upskill a large group of students at the same time.
@@ -183,7 +183,7 @@ export default function Home() {
                                     We're one of the best education consultancies out there, but don't take it form us: take it form the many students who have already benefited from our upskilling sessions:
                                 </p>
 
-                                <div className="dividerLine" style={{border: '2px solid #e4d7a6'}}></div>
+                                <div className="dividerLine weakDivider"></div>
                                 
                                 {/*actual quotes*/}
                                 <p className="alignLeft" style={{marginBottom: 0}}>

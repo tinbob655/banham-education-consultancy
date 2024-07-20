@@ -39,7 +39,7 @@ export default function Resources() {
                         </a>
 
                         {/*if this is not the last link, add a divider line*/}
-                        {links.indexOf(link) < links.length -1 ? <div className="dividerLine" style={{border: '2px solid #e4d7a6'}}></div> : <></>}
+                        {links.indexOf(link) < links.length -1 ? <div className="dividerLine weakDivider"></div> : <></>}
                     </React.Fragment>
                 );
             });

@@ -75,6 +75,10 @@ div {
         width: 75%;
         height: 0;
         border: 2px solid #ddcb80; 
+
+        &.weakDivider {
+            border: 2px solid #e4d7a6;
+        }
     }
 
     &.fancyButtonLine {
@@ -121,7 +125,6 @@ div {
         margin-top: 50px;
     }
 }
-
 
 button {
     margin: auto;
