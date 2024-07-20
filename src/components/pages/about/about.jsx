@@ -1,6 +1,7 @@
 import React from 'react';
 import SmartImage from '../../multiPage/smartImage.jsx';
 import staffData from './staffData.json';
+import './aboutStyles.scss';
 
 export default function About() {
 
@@ -25,7 +26,7 @@ export default function About() {
                                 <td>
                                     
                                     {/*profile picture*/}
-                                    <SmartImage imagePath={singleStaffData.profileImagePath || 'logo/logoFull.png'} imageClasses="mainImage" />
+                                    <SmartImage imagePath={singleStaffData.profileImagePath || 'logo/logoFull.png'} imageClasses={singleStaffData.profileImagePath ? 'profilePictureImage' : 'mainImage'} />
                                     {singleStaffData.profileImagePath ? '' : <p style={{fontFamily: 'monospace', fontSize: '13px'}}>The above image will change when a profile picture is supplied</p>}
                                 </td>
                                 <td colSpan={2}>
@@ -40,9 +41,11 @@ export default function About() {
                                         {singleStaffData.yearsOfExperience ? `${singleStaffData.yearsOfExperience} years experience` : ''}
                                     </p>
 
+                                    <div className="dividerLine weakDivider"></div>
+
                                     {/*description of staff member*/}
-                                    <p className="alignLeft" style={{marginLeft: '5%'}}>
-                                        {staffMember} is our {singleStaffData.subject || '{NO_SUBJECT_PROVIDED}'} tutor, specialising in {singleStaffData.specialisation || '{NO_SPECIALISATION_PROVIDED}'}. {singleStaffData.description || '{NO_DESCRIPTION_PROVIDED}'}
+                                    <p className="alignLeft" style={{marginLeft: '5%', whiteSpace: 'pre-wrap'}}>
+                                        {staffMember} is our {singleStaffData.subject || '{NO_SUBJECT_PROVIDED}'} tutor, specialising in {singleStaffData.specialisation || '{NO_SPECIALISATION_PROVIDED}'}. {singleStaffData.description.replaceAll('%LINE%', '\n\n') || '{NO_DESCRIPTION_PROVIDED}'}
                                     </p>
                                 </td>
                             </tr>
@@ -67,6 +70,8 @@ export default function About() {
                                         {singleStaffData.yearsOfExperience ? `${singleStaffData.yearsOfExperience} years experience` : ''}
                                     </p>
 
+                                    <div className="dividerLine weakDivider"></div>
+
                                     {/*description of staff member*/}
                                     <p className="alignRight" style={{marginRight: '5%'}}>
                                         {staffMember} is our {singleStaffData.subject || '{NO_SUBJECT_PROVIDED}'} tutor, specialising in {singleStaffData.specialisation || '{NO_SPECIALISATION_PROVIDED}'}. {singleStaffData.description || '{NO_DESCRIPTION_PROVIDED}'}
@@ -76,12 +81,12 @@ export default function About() {
                                 <td>
                                     
                                     {/*profile picture*/}
-                                    <SmartImage imagePath={singleStaffData.profileImagePath || 'logo/logoFull.png'} imageClasses="mainImage" />
+                                    <SmartImage imagePath={singleStaffData.profileImagePath || 'logo/logoFull.png'} imageClasses={singleStaffData.profileImagePath ? 'profilePictureImage' : 'mainImage'} />
                                     {singleStaffData.profileImagePath ? '' : <p style={{fontFamily: 'monospace', fontSize: '13px'}}>The above image will change when a profile picture is supplied</p>}
                                 </td>
                             </tr>
                         </React.Fragment>
-                    )
+                    );
                 };
 
                 //if this is not the last member of staff, add a divider line
@@ -90,7 +95,7 @@ export default function About() {
                         <React.Fragment>
                             <tr>
                                 <td colSpan={3}>
-                                    <div className="dividerLine" style={{border: '2px solid #e4d7a6'}}></div>
+                                    <div className="dividerLine"></div>
                                 </td>
                             </tr>
                         </React.Fragment>
