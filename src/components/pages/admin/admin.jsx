@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {getAuth, signInWithEmailAndPassword} from 'firebase/auth';
-import { getFirestore, updateDoc, doc, addDoc, collection } from 'firebase/firestore';
+import { getFirestore, addDoc, collection } from 'firebase/firestore';
 
 export default function Admin() {
 
@@ -31,7 +31,6 @@ export default function Admin() {
 
         const blogText = event.currentTarget.blog.value;
 
-        const auth = getAuth();
         if (blogText.length < 10) {
             throw('Blog is too short')
         }
@@ -40,7 +39,7 @@ export default function Admin() {
             //get the date today
             const date = new Date();
             const firestore = getFirestore();
-            await updateDoc(doc(firestore, 'blog', 'blog'), {
+            await addDoc(collection(firestore, 'blogs'), {
                 content: blogText,
                 dateEdited: date,
             })
