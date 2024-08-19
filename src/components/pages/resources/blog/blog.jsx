@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react';
-import SmartImage from '../../../multiPage/smartImage.jsx';
 import {getDocs, query, collection, orderBy, getFirestore} from 'firebase/firestore';
 
 export default function Blog() {
