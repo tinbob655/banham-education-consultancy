@@ -11,8 +11,6 @@ export default function Blog() {
         getDocs(query(collection(firestore, 'blogs'), orderBy('dateEdited', 'desc'))).then((docs) => {
             docs.forEach((doc) => {
 
-                console.log(doc, doc.data().content)
-
                 //get a formatted version of the date of editing
                 const day = new Date(doc.data().dateEdited.seconds * 1000);
                 let datePrefix = '';
