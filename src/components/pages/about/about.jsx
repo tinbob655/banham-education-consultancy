@@ -1,13 +1,15 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import SmartImage from '../../multiPage/smartImage.jsx';
 import staffData from './staffData.json';
+import InterestedGetInTouchHere from '../../multiPage/interestedGetInTouchHereButton.jsx';
 import './aboutStyles.scss';
 
 export default function About() {
 
-    function getStaffSections() {
+    const [staffSections, setStaffSections] = useState(null);
 
-        //only run if staff data exists
+    useEffect(() => {
+         //only run if staff data exists
         if (staffData) {
             let staffSectionsHTML = [];
 
@@ -102,11 +104,10 @@ export default function About() {
                     );
                 };
             });
-    
-            return staffSectionsHTML;
-        }
-        else return <></>;
-    };
+            setStaffSections(staffSectionsHTML);
+        };
+
+    }, []);
 
     return(
         <React.Fragment>
@@ -114,7 +115,7 @@ export default function About() {
                 About us
             </h1>
             <p className="noVerticalSpacing">
-                Experts in excellence
+                Experts in education
             </p>
 
             <div className="dividerLine"></div>
@@ -131,43 +132,60 @@ export default function About() {
                             <td style={{width: '20%'}}></td>
                             <td style={{width: '40%'}}></td>
                         </tr>
-                        {getStaffSections()}
+                        {staffSections}
                     </thead>
                 </table>
             </div>
 
             <div className="dividerLine"></div>
 
-            {/*what we offer section*/}
+            {/*contact us section*/}
             <div>
-                <table>
-                    <thead>
-                        <tr>
-                            {Object.keys(staffData).length % 2 === 0 ? (
-                                <React.Fragment>
-
-                                    {/*image on left, text on right*/}
+                {staffSections && staffSections.length % 2 === 0 ? (
+                    <React.Fragment>
+                        {/*image on left, text on right*/}
+                        <table>
+                            <thead>
+                                <tr>
                                     <td>
-                                        <SmartImage imageURL="WHAT_WE_OFFER" imageClasses="mainImage" />
+                                        <SmartImage imageURL='CONTACT_US_IMAGE_URL' imageClasses="mainImage" />
                                     </td>
                                     <td style={{width: '60%'}}>
                                         <h2>
-                                            What we offer
+                                            Contact us:
                                         </h2>
                                         <p>
-                                            We offer a selection of different programmes which are tailored to suit specific needs. These include our headstarter programme: designed to give students in years 10 and 12 a boost starting their new courses, our elite 1-to-1 programme: designed to teach students how to learn effectively rather than the content itself (a new, revolutionary idea in the education sector) and our support for schools programme: designed to upskill a large group of students at the same time.
+                                            If you want to book a session with us for schools, trusts or students, or you have an enquiry, then please do not hesitate to click the below button
                                         </p>
+                                        <InterestedGetInTouchHere/>
                                     </td>
-                                </React.Fragment>
-                            ) : (
-                                <React.Fragment>
-
-                                    {/*image on right, text on left*/}
-                                </React.Fragment>
-                            )}
-                        </tr>
-                    </thead>
-                </table>
+                                </tr>
+                            </thead>
+                        </table>
+                    </React.Fragment>
+                ) : (
+                    <React.Fragment>
+                        {/*text on left, image on right*/}
+                        <table>
+                            <thead>
+                                <tr>
+                                    <td style={{width: '60%'}}>
+                                        <h2>
+                                            Contact us:
+                                        </h2>
+                                        <p>
+                                            If you want to book a session with us for schools, trusts or students, or you have an enquiry, then please do not hesitate to click the below button
+                                        </p>
+                                        <InterestedGetInTouchHere/>
+                                    </td>
+                                    <td>
+                                        <SmartImage imageURL='CONTACT_US_IMAGE_URL' imageClasses="mainImage" />
+                                    </td>
+                                </tr>
+                            </thead>
+                        </table>
+                    </React.Fragment>
+                )}
             </div>
         </React.Fragment>
     );

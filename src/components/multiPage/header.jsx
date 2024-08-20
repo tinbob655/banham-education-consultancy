@@ -16,7 +16,7 @@ export default function Header() {
             ],
             [
                 'General',
-                'supportForSchools',
+                'generalCPD',
                 'CPD',
             ],
             [
@@ -31,7 +31,7 @@ export default function Header() {
             ],
             [
                 'Students',
-                'headstarter',
+                'students',
                 'Boost results',
             ],
             [

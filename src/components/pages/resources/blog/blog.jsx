@@ -3,6 +3,26 @@ import {getDocs, query, collection, orderBy, getFirestore} from 'firebase/firest
 
 export default function Blog() {
 
+    function getInnerBlogContent(separatedBlogContent) {
+        let innerHTML = [];
+        separatedBlogContent.forEach((section) => {
+            if (section.includes('www.')) {
+
+                //this is a link section
+                innerHTML.push(
+                    <a href={section} target='_blank' style={{textDecoration: 'underline'}}>{section}</a>
+                )
+            }
+            else {
+
+                //this is a paragraph section
+                innerHTML.push(section)
+            };
+        });
+
+        return innerHTML;
+    };
+
     const [blogHTML, setBlogHTML] = useState(<></>);
 
     useEffect(() => {
@@ -41,12 +61,20 @@ export default function Blog() {
             //after getting the data, format it into repeatable markup
             let tempBlogHTML = [];
             tempBlog.forEach((blog) => {
+
+                //separate the blog into sections of paragraphs and links
+                const separatedBlog = blog.content.split('#');
+
                 if (tempBlog.indexOf(blog) % 2 === 0) {
+
+                    tempBlogHTML.push(
+                        <p>
+                            {getInnerBlogContent(separatedBlog)}
+                        </p>
+                    )
+
                     tempBlogHTML.push(
                         <React.Fragment>
-                            <p className="alignLeft">
-                                {blog.content}
-                            </p>
                             <p className="alignRight">
                                 -Edited on {blog.dateEdited}
                             </p>
@@ -87,7 +115,7 @@ export default function Blog() {
                 Our blog
             </h1>
             <p className="noVerticalSpacing">
-                Keep up to date
+                Ideas, tips and resources
             </p>
 
             <div className="dividerLine"></div>

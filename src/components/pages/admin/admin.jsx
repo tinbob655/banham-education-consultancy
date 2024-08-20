@@ -1,12 +1,16 @@
 import React, {useState} from 'react';
+import { useNavigate } from 'react-router-dom';
 import {getAuth, signInWithEmailAndPassword} from 'firebase/auth';
 import { getFirestore, addDoc, collection } from 'firebase/firestore';
+import {getStorage, ref, uploadBytes, getDownloadURL} from 'firebase/storage';
+import './adminStyles.scss';
 
 export default function Admin() {
 
     const [loggedIn, setLoggedIn] = useState('');
-    const [blogSuccessfullyAddedMessage, setBlogSuccessfullyAddedMessage] = useState('');
-    const [formSuccessfullyAddedMessage, setFormSuccessfullyAddedMessage] = useState('');
+    const [file, setFile] = useState(null);
+
+    const navigate = useNavigate();
 
     function logInFormSubmitted(event) {
         event.preventDefault();
@@ -43,25 +47,50 @@ export default function Admin() {
                 content: blogText,
                 dateEdited: date,
             })
-            setBlogSuccessfullyAddedMessage('Blog successfully added');
         };
+
+        //after done, wait, then navigate to resources page
+        setTimeout(() => {
+            navigate('/resources');
+        }, 500);
     };
 
     async function resourcesFormSubmitted(event) {
         event.preventDefault();
 
         if (!event.currentTarget.name.value || !event.currentTarget.href.value || !event.currentTarget.description.value){
-            setFormSuccessfullyAddedMessage('All fields are required');
+            throw('All fields are required');
         }
 
+        const name = event.currentTarget.name.value;
+        const href = event.currentTarget.href.value;
+        const description = event.currentTarget.description.value;
+        const date = new Date();
+
         const firestore = getFirestore();
+        const storage = getStorage();
+
+        //first, upload the image to storage
+        const filename = file.name;
+        const imageRef = ref(storage, `resourceImages/${filename}`);
+        await uploadBytes(imageRef, file);
+
+        //after uploading, get the url of the image
+        const downloadURL = await getDownloadURL(ref(storage, `resourceImages/${filename}`));
+
+        //write resource data to firestore
         await addDoc(collection(firestore, 'links'), {
-            name: event.currentTarget.name.value,
-            href: event.currentTarget.href.value,
-            description: event.currentTarget.description.value,
+            name: name,
+            href: href,
+            description: description,
+            imageURL: downloadURL,
+            dateAdded: date,
         });
 
-        setFormSuccessfullyAddedMessage('Resource successfully added');
+        //after done, wait, then navigate to resources page
+        setTimeout(() => {
+            navigate('/resources');
+        }, 500);
     };
 
     return (
@@ -70,19 +99,15 @@ export default function Admin() {
                 <React.Fragment>
 
                     {/*add blog/resource page*/}
-                    <h1 className="alignLeft">
+                    <h1>
                         Add blog
                     </h1>
-                    <p className="alignLeft">
+                    <p>
                         Use the below form to add a blog, the new blog will replace the old blog immediately. (Blog must be at least 10 characters long.)
                     </p>
 
-                    <p className="alignLeft">
-                        {blogSuccessfullyAddedMessage}
-                    </p>
-
                     <form id="blogForm" onSubmit={(event) => {blogFormSubmitted(event)}}>
-                        <textarea name="blog" placeholder='Enter new blog here...' style={{width: '80%'}} rows={5} />
+                        <textarea required name="blog" placeholder='Enter new blog here...' style={{width: '80%'}} rows={5} />
                         <input type="submit" name="submit" value="submit" style={{display: 'block', marginTop: '5vh'}} />
                     </form>
 
@@ -92,30 +117,40 @@ export default function Admin() {
 
 
 
-                    <h1 className="alignLeft">
+                    <h1>
                         Add resource
                     </h1>
-                    <p className="alignLeft">
+                    <p>
                         Use the below form to add a resource, this new resource will be added to the existing list of resources on the resources and blogs page
                     </p>
-                    <p className="alignLeft">
-                        {formSuccessfullyAddedMessage}
-                    </p>
                     <form id="resourcesForm" onSubmit={(event) => {resourcesFormSubmitted(event)}}>
-                        <p className="alignLeft">
+                        <p>
                             Resource name/title:
                         </p>
                         <input type="text" name="name" placeholder='Enter resource name/title...' style={{width: '50%'}} required />
 
-                        <p className="alignLeft">
+                        <p>
                             Resource description:
                         </p>
                         <textarea name="description" placeholder="Enter resource description..." style={{width: '80%'}} rows={5} required/>
 
-                        <p className="alignLeft">
+                        <p>
                             Link to resource (starting http:// or https://):
                         </p>
                         <input type="url" name="href" placeholder='Enter link to resource here...' style={{width: '40%'}} required />
+
+                        <p>
+                            Image to display for resource:
+                        </p>
+                        <label htmlFor="imageUpload" id="imageUploadLabel">
+                            <h3>
+                                Click here to select an image
+                            </h3>
+                        </label>
+                        <input required type="file" id="imageUpload" accept="image/*" name="imageUpload" style={{display: 'none'}} onChange={(event) => {
+                            document.getElementById('imageUploadLabel').classList.add('hidden');
+                            setFile(event.target.files[0]);
+                        }}/>
 
                         <input type="submit" name="submit" value="submit" className="submit" style={{display: 'block', marginTop: '5vh'}} />
                     </form>
@@ -124,11 +159,11 @@ export default function Admin() {
                 <React.Fragment>
 
                     {/*admin login page*/}
-                    <h1 className="alignLeft">
+                    <h1>
                         Admin page
                     </h1>
 
-                    <h2 className="alignLeft">
+                    <h2>
                         Admin log in form:
                     </h2>
                     <form id="adminLogInForm" onSubmit={(event) => {logInFormSubmitted(event)}} style={{width: '100%'}}>

@@ -2,9 +2,9 @@ import React, {Component} from 'react';
 import {Route, Routes} from 'react-router-dom';
 
 //import all pages
-import Headstarter from './components/pages/headstarter/headstarter.jsx';
+import Students from './components/pages/students/students.jsx';
 import Elite1To1 from './components/pages/elite1To1/elite1To1.jsx';
-import SupportForSchools from './components/pages/supportForSchools/supportForSchools.jsx';
+import GeneralCPD from './components/pages/generalCPD/generalCPD.jsx';
 import Resources from './components/pages/resources/resources.jsx';
 import Blog from './components/pages/resources/blog/blog.jsx';
 import Home from './components/pages/home/home.jsx';
@@ -25,9 +25,9 @@ class AllRoutes extends Component {
     getRoutes() {
         const pages = {
             home: <Home/>,
-            headstarter: <Headstarter/>,
+            students: <Students/>,
             elite1To1: <Elite1To1/>,
-            supportForSchools: <SupportForSchools/>,
+            generalCPD: <GeneralCPD/>,
             resources: <Resources/>,
             blog: <Blog/>,
             about: <About/>,
