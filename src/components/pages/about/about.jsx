@@ -35,13 +35,8 @@ export default function About() {
 
                                     {/*staff member name + qualifications*/}
                                     <h2 className="alignRight" style={{marginBottom: 0}}>
-                                        {staffMember + (singleStaffData.qualifications ? ` (${singleStaffData.qualifications})` : '')}
+                                        {staffMember + (singleStaffData.qualifications ? ` ${singleStaffData.qualifications}` : '')}
                                     </h2>
-
-                                    {/*years of experience*/}
-                                    <p className="noVerticalSpacing alignRight">
-                                        {singleStaffData.yearsOfExperience ? `${singleStaffData.yearsOfExperience} years experience` : ''}
-                                    </p>
 
                                     <div className="dividerLine weakDivider"></div>
 
@@ -64,13 +59,8 @@ export default function About() {
 
                                     {/*staff member name + qualifications*/}
                                     <h2 className="alignLeft" style={{marginBottom: 0}}>
-                                        {staffMember + (singleStaffData.qualifications ? ` (${singleStaffData.qualifications})` : '')}
+                                        {staffMember + (singleStaffData.qualifications ? ` ${singleStaffData.qualifications}` : '')}
                                     </h2>
-
-                                    {/*years of experience*/}
-                                    <p className="noVerticalSpacing alignLeft">
-                                        {singleStaffData.yearsOfExperience ? `${singleStaffData.yearsOfExperience} years experience` : ''}
-                                    </p>
 
                                     <div className="dividerLine weakDivider"></div>
 

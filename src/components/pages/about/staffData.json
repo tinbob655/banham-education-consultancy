@@ -4,17 +4,6 @@
         "subject": "History",
         "specialisation": "GCSE & A-Level",
         "profileImagePath": "staffImages/daleBanham.png",
-        "yearsOfExperience": 32,
         "qualifications": "BA (Hons) MA (Education)"
-    },
-
-    
-    "Andrew Rutland": {
-        "description": "He is an experienced tutor of mathematics",
-        "subject": "Mathematics",
-        "specialisation": "Pure Mathematics",
-        "profileImagePath": "",
-        "yearsOfExperience": 27,
-        "qualifications": "BScHons Mathematics PGCE"
     }
 }
