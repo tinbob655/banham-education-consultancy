@@ -32,7 +32,7 @@ export default function Header() {
             [
                 'Students',
                 'students',
-                'Boost results',
+                'Revision Help',
             ],
             [
                 'Resources',
