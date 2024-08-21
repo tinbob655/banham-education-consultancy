@@ -121,7 +121,7 @@ export default function Blog() {
             <div className="dividerLine"></div>
 
             {/*blog section*/}
-            <div style={{maxWidth: '85%'}}>
+            <div style={{maxWidth: '60%'}}>
                 <h2>
                     Read all about it
                 </h2>
