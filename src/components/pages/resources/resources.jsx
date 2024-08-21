@@ -41,7 +41,7 @@ export default function Resources() {
                                                 <h2 className='alignLeft' style={{fontSize: '35px'}}>
                                                     -{link.name}
                                                 </h2>
-                                                <p className='alignLeft'>
+                                                <p className='alignLeft' style={{whiteSpace: 'pre-wrap'}}>
                                                     {link.description}
                                                 </p>
                                             </td>
@@ -121,8 +121,6 @@ export default function Resources() {
                 <p>
                     There are many resources which we at Banham Education Consultancy would recommend to all students in order to enrich their studies. These are:
                 </p>
-                
-                <div className="dividerLine weakDivider"></div>
 
                 <div style={{maxWidth: '80%'}}>
                     {linksHTML}
