@@ -12,7 +12,7 @@ export default function Resources() {
     useEffect(() => {
         const firestore = getFirestore();
         let tempLinks = [];
-        getDocs(query(collection(firestore, 'links'), orderBy('dateAdded', 'desc'))).then((docs) => {
+        getDocs(query(collection(firestore, 'links'), orderBy('dateAdded', 'asc'))).then((docs) => {
             docs.forEach((doc) => {
                 tempLinks.push(doc.data());
             });
