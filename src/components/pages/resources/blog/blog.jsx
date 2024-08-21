@@ -6,7 +6,7 @@ export default function Blog() {
     function getInnerBlogContent(separatedBlogContent) {
         let innerHTML = [];
         separatedBlogContent.forEach((section) => {
-            if (section.includes('www.')) {
+            if (section.includes('www.') || section.includes('https://') || section.includes('http://')) {
 
                 //this is a link section
                 innerHTML.push(
@@ -68,7 +68,7 @@ export default function Blog() {
                 if (tempBlog.indexOf(blog) % 2 === 0) {
 
                     tempBlogHTML.push(
-                        <p>
+                        <p style={{whiteSpace: 'pre-wrap'}} className="alignLeft">
                             {getInnerBlogContent(separatedBlog)}
                         </p>
                     )
@@ -84,7 +84,7 @@ export default function Blog() {
                 else {
                     tempBlogHTML.push(
                         <React.Fragment>
-                            <p className="alignRight">
+                            <p className="alignRight" style={{whiteSpace: 'pre-warp'}}>
                                 {blog.content}
                             </p>
                             <p className="alignLeft">
@@ -121,7 +121,7 @@ export default function Blog() {
             <div className="dividerLine"></div>
 
             {/*blog section*/}
-            <div style={{maxWidth: '75%'}}>
+            <div style={{maxWidth: '85%'}}>
                 <h2>
                     Read all about it
                 </h2>
