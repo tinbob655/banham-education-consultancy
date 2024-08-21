@@ -12,7 +12,7 @@ export default function History() {
     return(
         <React.Fragment>
             <h1 style={{marginBottom: 0}}>
-                History
+                History CPD
             </h1>
             <p className="noVerticalSpacing">
                 Bespoke support for Primary Schools, Secondary Schools and Trusts
