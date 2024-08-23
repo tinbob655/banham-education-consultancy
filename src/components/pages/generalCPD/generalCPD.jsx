@@ -20,7 +20,7 @@ export default function GeneralCPD() {
                     <thead>
                         <tr>
                             <td>
-                                <SmartImage imageURL="SUPPORT_FOR_SCHOOLS_IMAGE" imageClasses="mainImage" />
+                                <SmartImage imagePath="logo/logoFull.png" imageClasses="mainImage" />
                             </td>
                             <td style={{width: '60%'}}>
                                 <h2>

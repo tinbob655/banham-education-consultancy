@@ -113,7 +113,7 @@ export default function Home() {
                                 </p>
                             </td>
                             <td>
-                                <SmartImage imageURL='SUBJECTS_WE_OFFER ' imageClasses="mainImage" />
+                                <SmartImage imagePath="logo/logoFull.png" imageClasses="mainImage" />
                             </td>
                         </tr>
                     </thead>
@@ -128,7 +128,7 @@ export default function Home() {
                     <thead>
                         <tr>
                             <td>
-                                <SmartImage imageURL="ABOUT_USE_URL" imageClasses="mainImage" />
+                                <SmartImage imagePath="logo/logoFull.png" imageClasses="mainImage" />
                             </td>
                             <td style={{width: '60%'}}>
                                 <h2>
@@ -172,7 +172,7 @@ export default function Home() {
                             </td>
 
                             <td>
-                                <SmartImage imageURL='IMAGE_URL' imageClasses={'mainImage'} />
+                                <SmartImage imagePath="logo/logoFull.png" imageClasses={'mainImage'} />
                             </td>
                         </tr>
                     </thead>
@@ -185,7 +185,7 @@ export default function Home() {
                     <thead>
                         <tr>
                             <td>
-                                <SmartImage imageURL='QUOTES_FROM_STUDENTS' imageClasses="mainImage" />
+                                <SmartImage imagePath="logo/logoFull.png" imageClasses="mainImage" />
                             </td>
                             <td style={{width: '60%'}}>
                                 <h2>

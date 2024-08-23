@@ -169,7 +169,7 @@ export default function About() {
                                         <InterestedGetInTouchHere/>
                                     </td>
                                     <td>
-                                        <SmartImage imageURL='CONTACT_US_IMAGE_URL' imageClasses="mainImage" />
+                                        <SmartImage imagePath="logo/logoFull.png" imageClasses="mainImage" />
                                     </td>
                                 </tr>
                             </thead>

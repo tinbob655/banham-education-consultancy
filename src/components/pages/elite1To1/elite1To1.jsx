@@ -19,7 +19,7 @@ export default function Elite1To1() {
                 <thead>
                     <tr>
                         <td>
-                            <SmartImage imageURL='ELITE_1_TO_1_IMAGE_URL' imageClasses="mainImage" />
+                            <SmartImage imagePath="logo/logoFull.png" imageClasses="mainImage" />
                         </td>
                         <td style={{width: '60%'}}>
                             <h2>
@@ -69,7 +69,7 @@ export default function Elite1To1() {
                             <InterestedGetInTouchHere/>
                         </td>
                         <td>
-                            <SmartImage imageURL='UPSKILLED_IMAGE' imageClasses="mainImage" />
+                            <SmartImage imagePath="logo/logoFull.png" imageClasses="mainImage" />
                         </td>
                     </tr>
                 </thead>

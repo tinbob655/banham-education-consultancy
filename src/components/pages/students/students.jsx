@@ -19,7 +19,7 @@ export default function Students() {
                 <thead>
                     <tr>
                         <td>
-                            <SmartImage imageURL='IMAGE_URL' imageClasses='mainImage' />
+                            <SmartImage imagePath="logo/logoFull.png" imageClasses='mainImage' />
                         </td>
                         <td style={{width: '60%'}}>
                             <h2>

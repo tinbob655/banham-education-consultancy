@@ -76,7 +76,7 @@ export default function History() {
                                 <InterestedGetInTouchHere/>
                             </td>
                             <td>
-                                <SmartImage imageURL='OUR_PROGRAMMES' imageClasses="mainImage" />
+                                <SmartImage imagePath="logo/logoFull.png" imageClasses="mainImage" />
                             </td>
                         </tr>
                     </thead>
