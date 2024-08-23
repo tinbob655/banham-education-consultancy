@@ -30,13 +30,13 @@ export default function GeneralCPD() {
                                     Please get in touch to discuss what training or support you need. The menu below provides an overview of support that has been offered to schools and trusts in the past however we are always keen to adapt the training to suit the context of the school/trust that we are working with. We also offer a similar range of training opportunities for Early Careers Teachers. 
                                 </p>
                                 <p className="alignLeft">
-                                    -	The science of learning – using educational research to developing effective revision strategies 
-                                    <br/>
-                                    -	Formative assessment strategies – effective questioning, utilising the power of feedback and encouraging students to take responsibility for their learning 
-                                    <br/>
-                                    -	Developing Literacy across the curriculum (this includes strategies for developing whole school approaches to reading and writing) 
-                                    <br/>
-                                    -	Developing a whole school CPD programme that incorporates action research and fosters professional curiosity 
+                                    •	The science of learning – using educational research to developing effective revision strategies 
+                                    <br/><br/>
+                                    •	Formative assessment strategies – effective questioning, utilising the power of feedback and encouraging students to take responsibility for their learning 
+                                    <br/><br/>
+                                    •	Developing Literacy across the curriculum (this includes strategies for developing whole school approaches to reading and writing) 
+                                    <br/><br/>
+                                    •	Developing a whole school CPD programme that incorporates action research and fosters professional curiosity 
 
                                 </p>
                                 <InterestedGetInTouchHere />

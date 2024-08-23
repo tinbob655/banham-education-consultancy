@@ -60,17 +60,17 @@ export default function History() {
                                 <div className="dividerLine weakDivider"></div>
 
                                 <p className="alignLeft">
-                                    -	Raising attainment at GCSE and/or A Level (including supporting lower attainers)
-                                    <br/>
-                                    -	Effective revision strategies 
-                                    <br/>
-                                    -	Creative History Teaching 
-                                    <br/>
-                                    -	Developing disciplinary thinking and extended writing 
-                                    <br/>
-                                    -	Developing reading in History & the power of stories 
-                                    <br/>
-                                    -	Curriculum design (at Key Stage 2 or Key Stage 3) 
+                                    •	Raising attainment at GCSE and/or A Level (including supporting lower attainers)
+                                    <br/><br/>
+                                    •	Effective revision strategies 
+                                    <br/><br/>
+                                    •	Creative History Teaching 
+                                    <br/><br/>
+                                    •	Developing disciplinary thinking and extended writing 
+                                    <br/><br/>
+                                    •	Developing reading in History & the power of stories 
+                                    <br/><br/>
+                                    •	Curriculum design (at Key Stage 2 or Key Stage 3) 
 
                                 </p>
                                 <InterestedGetInTouchHere/>
