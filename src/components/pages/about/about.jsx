@@ -42,7 +42,7 @@ export default function About() {
 
                                     {/*description of staff member*/}
                                     <p className="alignLeft" style={{marginLeft: '5%', whiteSpace: 'pre-wrap'}}>
-                                        {staffMember} is our {singleStaffData.subject || '{NO_SUBJECT_PROVIDED}'} tutor, specialising in {singleStaffData.specialisation || '{NO_SPECIALISATION_PROVIDED}'}. {singleStaffData.description.replaceAll('%LINE%', '\n\n') || '{NO_DESCRIPTION_PROVIDED}'}
+                                        {staffMember} is our {singleStaffData.subject || '{NO_SUBJECT_PROVIDED}'} tutor. {singleStaffData.description || '{NO_DESCRIPTION_PROVIDED}'}
                                     </p>
                                 </td>
                             </tr>
@@ -59,14 +59,14 @@ export default function About() {
 
                                     {/*staff member name + qualifications*/}
                                     <h2 className="alignLeft" style={{marginBottom: 0}}>
-                                        {staffMember + (singleStaffData.qualifications ? ` ${singleStaffData.qualifications}` : '')}
+                                        {staffMember + (singleStaffData.qualifications ? ` ${singleStaffData.qualifications}` : ' {NO_QUALIFICATIONS_PROVIDED}')}
                                     </h2>
 
                                     <div className="dividerLine weakDivider"></div>
 
                                     {/*description of staff member*/}
-                                    <p className="alignRight" style={{marginRight: '5%'}}>
-                                        {staffMember} is our {singleStaffData.subject || '{NO_SUBJECT_PROVIDED}'} tutor, specialising in {singleStaffData.specialisation || '{NO_SPECIALISATION_PROVIDED}'}. {singleStaffData.description || '{NO_DESCRIPTION_PROVIDED}'}
+                                    <p className="alignRight" style={{marginRight: '5%', whiteSpace: 'pre-wrap'}}>
+                                        {staffMember} is our {singleStaffData.subject || '{NO_SUBJECT_PROVIDED}'} tutor. {singleStaffData.description || '{NO_DESCRIPTION_PROVIDED}'}
                                     </p>
                                 </td>
 
