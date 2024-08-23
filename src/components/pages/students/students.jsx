@@ -25,13 +25,13 @@ export default function Students() {
                             <h2>
                                 How can our student revision conferences improve your exam results? 
                             </h2>
-                            <p>
+                            <p className="alignLeft">
                                 Our student revision conferences take place during the school holidays and are aimed at students who want to improve their exam performance. Students who attend are taught tried and tested techniques for boosting memory and a set of revision strategies that they can apply to a range of subjects. In addition, they will be provided with model revision timetables and links to additional free online resources that can help them prepare effectively for their upcoming exams. 
                                 We offer the following support:
                             </p>
                             <p className="alignLeft">
                                 -	A one day, summer holiday conference for Year 10 students who are disappointed with their performance in Y10 end of year exams and want to develop successful revision techniques before they start Year 11.  This conference includes booster sessions for English and Maths.
-                                <br/>
+                                <br/><br/>
                                 -	A one day, February half-term holiday conference for Year 11 students who want to improve on their Year 11 mock exam results. This conference includes booster sessions for English and Maths. If there is the demand, we can also offer booster sessions for Psychology, History, French, Spanish and Law. 
 
                             </p>

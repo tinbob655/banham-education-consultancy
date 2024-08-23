@@ -31,7 +31,7 @@ export default function Home() {
                                 <h2>
                                     Turning potential into reality
                                 </h2>
-                                <p>
+                                <p className="alignLeft">
                                 We offer a range of support packages for schools and students, specialising in providing practical ways to help all students fully engage with their learning, remember more and perform better in tests and exams. <br/>These services are:
 
                                 </p>
@@ -134,7 +134,7 @@ export default function Home() {
                                 <h2>
                                     About us
                                 </h2>
-                                <p>
+                                <p className="alignLeft">
                                     Banham Educational Consultancy was established by Dale Banham. Dale is an experienced senior leader, the author of several leading GCSE History textbooks and an honourary member of the Historical Association and the Schools History Project. As well as teaching, he provides support for a wide range of local authorities, trusts and schools. Dale also works in partnership with other subject experts to provide support for students that has been shown to significantly boost their grades. 
                                 </p>
                                 <Link to="/about">
