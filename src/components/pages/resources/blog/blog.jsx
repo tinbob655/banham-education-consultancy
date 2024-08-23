@@ -68,7 +68,7 @@ export default function Blog() {
                 if (tempBlog.indexOf(blog) % 2 === 0) {
 
                     tempBlogHTML.push(
-                        <p style={{whiteSpace: 'pre-wrap'}} className="alignLeft">
+                        <p style={{whiteSpace: 'pre-wrap', fontSize: '20px'}} className="alignLeft">
                             {getInnerBlogContent(separatedBlog)}
                         </p>
                     )
