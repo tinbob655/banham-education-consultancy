@@ -1,7 +1,7 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, memo} from 'react';
 import {getStorage, getDownloadURL, ref} from 'firebase/storage';
 
-export default function SmartImage({imageStyles, imageClasses, imageId, imageURL, imagePath}) {
+export default memo(function SmartImage({imageStyles, imageClasses, imageId, imageURL, imagePath}) {
 
     const [fetchedImageURL, setFetchedImageURL] = useState(null);
 
@@ -26,4 +26,4 @@ export default function SmartImage({imageStyles, imageClasses, imageId, imageURL
             <img style={imageStyles ? imageStyles : {}} className={imageClasses ? imageClasses : ''} id={imageId ? imageId : ''} src={imageURL ? imageURL : fetchedImageURL} />
         </React.Fragment>
     );
-};
+});
