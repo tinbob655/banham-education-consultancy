@@ -8,6 +8,7 @@ import Header from './components/multiPage/header.jsx';
 import ScrollToTop from './components/multiPage/scrollToTop.jsx';
 import Footer from './components/multiPage/footer.jsx';
 import './index.scss';
+import { MobileContextProvider } from './context/mobileContext.jsx';
 
 firebaseInit();
 
@@ -16,15 +17,18 @@ root.render(
   <BrowserRouter>
     <React.StrictMode>
 
-      <ScrollToTop/>
+      <MobileContextProvider>
 
-      <Header/>
-      {/*main page*/}
-      <div style={{marginTop: '200px'}}>
-        <AllRoutes/>
-      </div>
+        <ScrollToTop/>
+        <Header/>
+        
+        {/*main page*/}
+        <div id="potentialGapCreator"></div>
+          <AllRoutes/>
 
-      <Footer/>
+        <Footer/>
+
+      </MobileContextProvider>
       <Analytics/>
 
     </React.StrictMode>

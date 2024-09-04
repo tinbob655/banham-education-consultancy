@@ -1,0 +1,52 @@
+h1 {
+    font-size: 35px;
+}
+
+h2 {
+    font-size: 25px;
+}
+
+p {
+    max-width: 85%;
+    margin: auto;
+
+    &.alignLeft {
+        margin-left: 7.5%;
+    }
+
+    &.alignRight {
+        margin-right: 7.5%;
+    }
+}
+
+div {
+
+    &.dividerLine {
+        width: 85%;
+
+        &.weakDivider {
+            width: 75%;
+        }
+    }
+
+    &#headerWrapper {
+        background-color: transparent;
+        transform: translateY(-90%);
+        transition-property: transform;
+        transition-duration: 0.75s;
+        transition-timing-function: ease;
+
+        &.opened {
+            transform: translateY(0);
+        }
+    }
+}
+
+button.fancyButton {
+    min-height: 10vh;
+    $marginTopAndBottomFancyButton: 0.5vh;
+    margin-top: $marginTopAndBottomFancyButton;
+    margin-bottom: $marginTopAndBottomFancyButton;
+    min-height: 10vh;
+    border-radius: 25px;
+}

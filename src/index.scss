@@ -124,6 +124,21 @@ div {
         border-top: 4px #ddcb80 solid;
         margin-top: 50px;
     }
+
+    &#potentialGapCreator {
+        padding-top: 0;
+        padding-bottom: 0;
+        margin-top: 0;
+        margin-bottom: 0;
+        width: auto;
+        display: block;
+
+        height: 200px;
+
+        &.mobileGap {
+            height: 50px !important;
+        }
+    }
 }
 
 button {
