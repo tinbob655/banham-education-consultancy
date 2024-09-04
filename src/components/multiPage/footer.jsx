@@ -1,8 +1,10 @@
 import React from 'react';
 import SmartImage from './smartImage.jsx';
-import { Link } from 'react-router-dom';
+import { useIsMobile } from '../../context/mobileContext.jsx';
 
 export default function Footer() {
+
+    const isMobile = useIsMobile();
 
     return (
         <React.Fragment>
@@ -15,7 +17,7 @@ export default function Footer() {
 
                 <div className="dividerLine"></div>
 
-                <SmartImage imagePath="logo/logoFull.png" imageClasses="mainImage" imageStyles={{height: '40vh', marginTop: '100px', marginBottom: '50px', width: 'auto'}} />
+                <SmartImage imagePath="logo/logoFull.png" imageClasses="mainImage" imageStyles={!isMobile ? {height: '40vh', marginTop: '100px', marginBottom: '50px', width: 'auto'} : {height: 'auto', width: '95%', marginTop: '100px', marginBottom: '50px'}} />
 
                 <div className="dividerLine" style={{border: '2px solid transparent', marginBottom: 0}}></div>
             </div>
