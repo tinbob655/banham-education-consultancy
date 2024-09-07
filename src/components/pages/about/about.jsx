@@ -118,7 +118,7 @@ export default function About() {
 
                             {/*staff member name + qualifications*/}
                             <h2>
-                                {staffMember + ' ' + (singleStaffData.qualifications || '')}
+                                {staffMember + ' ' + (singleStaffData.qualifications || '{NO QUALIFICATIONS PROVIDED}')}
                             </h2>
 
                             {/*description of staff member*/}
@@ -268,7 +268,7 @@ export default function About() {
                                     </tr>
                                 </thead>
                             </table>
-                            <p style={{marginTop: '10px'}}>
+                            <p style={{marginTop: '10px'}} className="alignLeft">
                                 If you want to book a session with us for schools, trusts or students, or you have an enquiry, then please do not hesitate to click the below button
                             </p>
                             <InterestedGetInTouchHere/>

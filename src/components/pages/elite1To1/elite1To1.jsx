@@ -135,11 +135,11 @@ export default function Elite1To1() {
                     <thead>
                         <tr>
                             <td>
-                                <h2>
+                                <h2 style={{marginLeft: '3px'}}>
                                     Expert subject specific tutoring
                                 </h2>
                             </td>
-                            <td style={{width: '60%'}}>
+                            <td style={{width: '55%'}}>
                                 <SmartImage imagePath="logo/logoFull.png" imageClasses="mainImage" />
                             </td>
                         </tr>
@@ -156,13 +156,13 @@ export default function Elite1To1() {
 
                     <div className="dividerLine weakDivider"></div>
 
-                    <p>
+                    <p className="alignLeft">
                     •	All of our tutors are experienced teachers who have either been Heads of Department or Examiners. 
                     </p>
 
                     <div className="dividerLine weakDivider"></div>
 
-                    <p>
+                    <p className="alignLeft">
                     •	All of our tutors can offer tutoring online if parents/students prefer this approach. 
                     </p>
 
