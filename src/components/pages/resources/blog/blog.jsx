@@ -141,7 +141,7 @@ export default function Blog() {
             //return the html
             setBlogHTML(tempBlogHTML);
         });
-    }, []);
+    }, [isMobile]);
 
     return(
         <React.Fragment>

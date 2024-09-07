@@ -133,7 +133,7 @@ export default function Resources() {
                 </React.Fragment>
             )
         }
-    }, [links]);
+    }, [links, isMobile]);
 
 
     //desktop resources section
