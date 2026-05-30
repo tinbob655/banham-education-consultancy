@@ -1,0 +1,89 @@
+@use './variables' as vars;
+
+
+h1 {
+  font-family: vars.$font-heading;
+  color: vars.$color-gold-sheen;
+  font-weight: 400;
+
+  @include vars.mobile {
+    font-size: 2rem;
+  }
+}
+
+h2 {
+  font-family: vars.$font-heading;
+  color: vars.$color-gold-bright;
+  font-weight: 300;
+  margin-bottom: 10px;
+
+  @include vars.mobile {
+    font-size: 1.4rem;
+  }
+}
+
+h3 {
+  font-family: vars.$font-subheading;
+  color: vars.$color-text-primary;
+  font-style: italic;
+  font-weight: 300;
+  cursor: pointer;
+
+  $enlargementMultiplier: 1.075;
+  max-width: calc(75vw);
+
+  transition-property: transform, color;
+  transition-duration: 0.5s;
+  transition-timing-function: ease;
+
+  &:hover {
+    transform: scale($enlargementMultiplier);
+    color: vars.$color-gold-bright;
+  }
+
+  @include vars.mobile {
+    font-size: 1rem;
+    max-width: 90vw;
+    transform: none !important;
+  }
+}
+
+p {
+  font-family: vars.$font-base;
+  color: vars.$color-text-primary;
+
+  @include vars.mobile {
+    font-size: 0.9rem;
+  }
+}
+
+
+// Alignment rules
+$alignLeftRightMargin: 7.5%;
+
+@mixin leftAlignedText {
+  margin-left: $alignLeftRightMargin;
+  margin-right: unset;
+  text-align: left;
+  transform-origin: left;
+}
+
+@mixin rightAlignedText {
+  margin-right: $alignLeftRightMargin;
+  margin-left: auto;
+  text-align: right;
+  transform-origin: right;
+}
+
+h1, h2, h3, p {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+
+  &.alignLeft  { @include leftAlignedText;  }
+  &.alignRight { @include rightAlignedText; }
+}
+
+// Automatically apply paragraph alignment to children of a section
+section.alignLeft  > p { @include leftAlignedText;  }
+section.alignRight > p { @include rightAlignedText; }

@@ -1,0 +1,81 @@
+@use './variables' as vars;
+
+
+//registers the shimmer position as an animatable CSS property
+@property --shimmer-progress {
+  syntax: '<percentage>';
+  inherits: false;
+  initial-value: -20%;
+}
+
+@keyframes shimmerSweep {
+  0%   { --shimmer-progress: -20%; }
+  100% { --shimmer-progress: 150%; }
+}
+
+//gold dot grid sweeps across the page periodically
+body {
+  &::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(vars.$color-gold-primary, 0.18) 1px, transparent 1px);
+    background-size: 28px 28px;
+    pointer-events: none;
+    z-index: 0;
+
+    $shimmerWidth: 10%;
+    -webkit-mask-image: linear-gradient(
+            to bottom right,
+            transparent calc(var(--shimmer-progress) - $shimmerWidth),
+            black var(--shimmer-progress),
+            transparent calc(var(--shimmer-progress) + $shimmerWidth)
+    );
+    mask-image: linear-gradient(
+            to bottom right,
+            transparent calc(var(--shimmer-progress) - $shimmerWidth),
+            black var(--shimmer-progress),
+            transparent calc(var(--shimmer-progress) + $shimmerWidth)
+    );
+
+    animation: shimmerSweep 15s infinite linear;
+  }
+}
+
+//slow pulse — used on the logo glow
+@keyframes glowPulse {
+  0%, 100% { opacity: 0.15; }
+  50%       { opacity: 0.7;  }
+}
+
+//sweeps a border line left to right on load
+@keyframes scanLine {
+  from { transform: scaleX(0); transform-origin: left; }
+  to   { transform: scaleX(1); transform-origin: left; }
+}
+
+//logo glow pulses gently
+header .logoWrapper::after {
+  animation: glowPulse 8s ease-in-out infinite;
+}
+
+//header bottom border draws in on load
+header::after {
+  animation: scanLine 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: 0.2s;
+}
+
+//section divider draws in shortly after
+.sectionDivider {
+  animation: scanLine 1s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation-delay: 0.35s;
+}
+
+//respect the user's OS motion preference
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration:  0.01ms !important;
+    animation-delay:     0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

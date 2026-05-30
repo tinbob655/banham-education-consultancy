@@ -1,0 +1,19 @@
+@use './variables' as vars;
+
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: vars.$color-bg-void;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(vars.$color-gold-muted, 0.6);
+  border-radius: vars.$radius-sm;
+
+  &:hover {
+    background: vars.$color-gold-primary;
+  }
+}
