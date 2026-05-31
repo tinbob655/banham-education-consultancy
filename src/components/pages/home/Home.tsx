@@ -60,7 +60,7 @@ export default function Home():React.ReactElement {
                     Each month our blog provides teachers and school leaders with practical tips and interesting links
                     to educational research that we are using to develop teaching and learning.
                 </p>
-                <FancyButton text={"View our blog"} path={"/blog"} />
+                <FancyButton text={"View our blog"} path={"/resources"} />
             </GenericMarkupSection>
 
             <GenericMarkupSection heading={"Our reviews"}>

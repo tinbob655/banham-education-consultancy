@@ -10,7 +10,6 @@ import History from "./components/pages/history/History.tsx";
 import Resources from "./components/pages/resources/Resources.tsx";
 import Students from "./components/pages/students/Students.tsx";
 import Tutoring from "./components/pages/tutoring/Tutoring.tsx";
-import Blog from "./components/pages/blog/Blog.tsx";
 
 const routeInfo:[string, React.ComponentType][] = [
     ['', Home],
@@ -21,7 +20,6 @@ const routeInfo:[string, React.ComponentType][] = [
     ['resources', Resources],
     ['students', Students],
     ['tutoring', Tutoring],
-    ['blog', Blog]
 ]
 
 export default function AllRoutes():React.ReactElement {
