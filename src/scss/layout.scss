@@ -24,6 +24,11 @@ body::before {
   }
 }
 
+//the last section of each page should not have a section divider
+#content section:last-child .sectionDivider {
+  display: none;
+}
+
 
 //gold gradient rule between sections
 .sectionDivider {
