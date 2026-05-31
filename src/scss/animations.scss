@@ -71,11 +71,29 @@ header::after {
   animation-delay: 0.35s;
 }
 
+//sections float up when scrolled into view
+section {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+
+  &.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 //respect the user's OS motion preference
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration:  0.01ms !important;
     animation-delay:     0.01ms !important;
     transition-duration: 0.01ms !important;
+  }
+
+  section {
+    opacity: 1;
+    transform: none;
+    transition: none;
   }
 }
