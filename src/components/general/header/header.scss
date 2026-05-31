@@ -1,0 +1,253 @@
+@use '../../../scss/variables' as vars;
+
+//vars to be used
+$header-height:        68px;
+$header-height-mobile: 56px;
+$nav-h-pad:            12px;
+
+//wraps the entire header
+header {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  width: 100%;
+  height: $header-height;
+
+  background: rgba(vars.$color-bg-void, 0.82);
+  backdrop-filter: blur(18px) saturate(1.5);
+  -webkit-backdrop-filter: blur(18px) saturate(1.5);
+
+  //line gets drawn in by animations.scss
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(
+            90deg,
+            transparent                  0%,
+            vars.$color-gold-muted      15%,
+            vars.$color-gold-primary    50%,
+            vars.$color-gold-muted      85%,
+            transparent                 100%
+    );
+    box-shadow: 0 0 10px rgba(vars.$color-gold-primary, 0.35);
+  }
+
+  @include vars.mobile {
+    height: $header-height-mobile;
+  }
+}
+
+//actual header content
+header .headerInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1100px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 48px;
+
+  @include vars.mobile {
+    padding: 0 20px;
+  }
+}
+
+//the logo image in the header
+.headerInner .logoWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+
+  //overrides the global <a> styles
+  border-bottom: none !important;
+  text-decoration: none !important;
+
+  img {
+    height: 38px;
+    width: auto;
+    display: block;
+    transition: opacity vars.$transition-base, filter vars.$transition-base;
+  }
+
+  //glow will be animated by animation.scss
+  &::after {
+    content: '';
+    position: absolute;
+    inset: -14px;
+    background: radial-gradient(
+            ellipse at center,
+            rgba(vars.$color-gold-primary, 0.32) 0%,
+            transparent 68%
+    );
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  &:hover img {
+    opacity: 0.75;
+    filter: drop-shadow(0 0 8px rgba(vars.$color-gold-bright, 0.4));
+  }
+}
+
+//the navbar for desktop
+header nav {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+
+  @include vars.mobile {
+    display: none;
+  }
+}
+
+header nav .navLink {
+  position: relative;
+  padding: 8px $nav-h-pad;
+
+  //overrides the global <a> styles
+  border-bottom: none !important;
+  text-decoration: none !important;
+
+  font-family: vars.$font-base;
+  font-size: 0.75rem;
+  font-weight: vars.$font-weight-medium;
+  letter-spacing: vars.$letter-spacing-widest;
+  text-transform: uppercase;
+  color: vars.$color-text-secondary;
+  white-space: nowrap;
+  transition: color vars.$transition-base;
+
+  //will slide in when the user hovers over the link
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 4px;
+    left: $nav-h-pad;
+    right: $nav-h-pad;
+    height: 1px;
+    background: vars.$gradient-gold;
+    transform: scaleX(0);
+    transform-origin: right center;
+    transition: transform vars.$transition-base;
+  }
+
+  &:hover {
+    color: vars.$color-gold-bright;
+
+    &::after {
+      transform: scaleX(1);
+      transform-origin: left center; // slides in from left on hover
+    }
+  }
+
+  &.active {
+    color: vars.$color-gold-primary;
+
+    &::after {
+      transform: scaleX(1); // always visible when on this page
+    }
+  }
+}
+
+//mobile hamburger button
+header .hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end; // right-align the three bars for a staggered look
+  gap: 5px;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 300;
+
+  @include vars.mobile {
+    display: flex;
+  }
+
+  //the hamburger bars themselves
+  span {
+    display: block;
+    height: 1px;
+    background: vars.$color-gold-primary;
+    transform-origin: center;
+    transition:
+            transform  vars.$transition-base,
+            opacity    vars.$transition-base,
+            width      vars.$transition-base;
+
+    //big, small, big
+    &:nth-child(1) { width: 22px; }
+    &:nth-child(2) { width: 16px; }
+    &:nth-child(3) { width: 22px; }
+  }
+}
+
+
+.mobileMenu {
+  display: none;
+
+  @include vars.mobile {
+    display: flex;
+    flex-direction: column;
+  }
+
+  position: fixed;
+  top: $header-height-mobile;
+  left: 0;
+  right: 0;
+  z-index: 199;
+
+  background: rgba(vars.$color-bg-void, 0.97);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(vars.$color-gold-muted, 0.35);
+  padding: 8px 20px 28px;
+
+  animation: menuSlideIn vars.$transition-slow forwards;
+}
+
+@keyframes menuSlideIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.mobileMenu .mobileNavLink {
+  display: block;
+  padding: 15px 8px;
+
+  //overrides the global <a> styles
+  border-bottom: 1px solid rgba(vars.$color-gold-muted, 0.2) !important;
+  text-decoration: none !important;
+
+  font-family: vars.$font-heading;
+  font-size: 0.85rem;
+  font-weight: vars.$font-weight-light;
+  letter-spacing: vars.$letter-spacing-wide;
+  text-transform: uppercase;
+  color: vars.$color-text-secondary;
+  transition:
+          color        vars.$transition-base,
+          padding-left vars.$transition-base;
+
+  &:last-child {
+    border-bottom: none !important;
+  }
+
+  &:hover {
+    color: vars.$color-gold-bright;
+    padding-left: 14px;
+  }
+
+  &.active {
+    color: vars.$color-gold-primary;
+    padding-left: 14px;
+  }
+}
