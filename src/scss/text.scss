@@ -80,10 +80,18 @@ h1, h2, h3, p {
   margin-left: auto;
   margin-right: auto;
 
-  &.alignLeft  { @include leftAlignedText;  }
-  &.alignRight { @include rightAlignedText; }
+  &.alignLeft  {
+    @include leftAlignedText;
+  }
+  &.alignRight {
+    @include rightAlignedText;
+  }
 }
 
 // Automatically apply paragraph alignment to children of a section
-section.alignLeft  > p { @include leftAlignedText;  }
-section.alignRight > p { @include rightAlignedText; }
+section.alignLeft  p, section.alignLeft h2 {
+  @include leftAlignedText;
+}
+section.alignRight p, section.alignRight h2 {
+  @include rightAlignedText;
+}
