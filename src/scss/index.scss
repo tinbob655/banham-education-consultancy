@@ -6,6 +6,7 @@
 @use './animations';
 @use './scrollbar';
 @use './components';
+@use './list';
 
 @mixin noVerticalSpacing {
   margin-top: 0;
