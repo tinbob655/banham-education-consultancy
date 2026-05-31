@@ -86,4 +86,18 @@ h2.sectionTitle {
   &::-webkit-scrollbar {
     display: none;
   }
+
+  //caravans on mobile go vertically
+  @include vars.mobile {
+    flex-direction: column;
+
+    section.alignLeft > & {
+      align-items: flex-start;
+    }
+    section.alignRight > & {
+      align-items: flex-end;
+    }
+    overflow-x: visible;
+    gap: 8px;
+  }
 }
