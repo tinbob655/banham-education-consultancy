@@ -109,4 +109,18 @@
     outline: 2px solid vars.$color-gold-bright;
     outline-offset: 3px;
   }
+
+  //fancy buttons which are direct descendants of their section should be aligned
+  section.alignLeft > & {
+    display: flex;
+    width: fit-content;
+    margin-right: auto;
+    margin-left: 7.5%;
+  }
+  section.alignRight > &{
+    display: flex;
+    width: fit-content;
+    margin-right: 7.5%;
+    margin-left: auto;
+  }
 }
