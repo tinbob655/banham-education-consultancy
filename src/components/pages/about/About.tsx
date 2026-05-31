@@ -15,6 +15,7 @@ export default function About():React.ReactElement {
                 const left:boolean = index % 2 === 1;
                 return (
                     <GenericMarkupSection heading={`${staffMember.name} ${staffMember.qualifications ?? ''}`} left={left}>
+                        <span className={"tag"}>{staffMember.subject}</span>
                         <p style={{whiteSpace: 'pre-wrap'}}>
                             {staffMember.description}
                         </p>

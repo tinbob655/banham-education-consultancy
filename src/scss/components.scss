@@ -32,6 +32,19 @@ div.card {
   border-radius: vars.$radius-sm;
   padding: 2px 8px;
   line-height: 1.6;
+
+  section.alignLeft > & {
+    display: block;
+    width: fit-content;
+    margin-left: 7.5%;
+    margin-right: auto;
+  }
+  section.alignRight > & {
+    display: block;
+    width: fit-content;
+    margin-right: 7.5%;
+    margin-left: auto;
+  }
 }
 
 //page-level hero header

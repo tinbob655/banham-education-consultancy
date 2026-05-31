@@ -21,12 +21,16 @@ export default function Students():React.ReactElement {
                 </p>
                 <List items={[
                     <p>
+                        <span className={"tag"}>Year 10</span>
+                        <br/>
                         A one day, <b>summer holiday conference for Year 10 students</b> who are disappointed with their
                         performance in Y10 end of year exams and want to develop successful revision techniques before
                         they start Year 11. This conference includes booster sessions for English and Maths.
                     </p>,
 
                     <p>
+                        <span className={"tag"}>Year 11</span>
+                        <br/>
                         A one day, <b>February half-term holiday conference for Year 11 students</b> who want to improve on
                         their Year 11 mock exam results. This conference includes booster sessions for English and
                         Maths. If there is the demand, we can also offer booster sessions for Psychology, History,
@@ -34,6 +38,8 @@ export default function Students():React.ReactElement {
                     </p>,
 
                     <p>
+                        <span className={"tag"}>Year 12</span>
+                        <br/>
                         A one day, <b>summer holiday conference for Year 12 students</b> who are disappointed with their
                         performance in Y12 end of year exams and want to develop successful revision techniques before
                         they start Year 13. We can also offer additional booster sessions for English, Maths, Psychology,

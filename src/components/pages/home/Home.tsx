@@ -75,9 +75,7 @@ export default function Home():React.ReactElement {
                         "Thank you everyone for your help. I’d have never made it through GCSEs, let alone A levels without
                      it. The revision tips really worked and saved me so much time."
                         <br/>
-                        <i>
-                            -(Year 13 student, August 2024)
-                        </i>
+                        <span className={"tag"}>Year 13 student, August 2024</span>
                     </p>,
 
                     <p>
@@ -86,9 +84,7 @@ export default function Home():React.ReactElement {
                         of parents ordering copies of your books for revision, I also found the new revision guides which
                         look exciting, I’ve just ordered a copy of each."
                         <br/>
-                        <i>
-                            -(Head of History, February 2024)
-                        </i>
+                        <span className={"tag"}>Head of History, February 2024</span>
                     </p>,
 
                     <p>
@@ -96,9 +92,7 @@ export default function Home():React.ReactElement {
                         Grade 3 to a Grade 7 using the methods and resources you went through. They also helped with English
                         Lit and all the Sciences. Thank you so much, you helped me develop the confidence to believe in myself."
                         <br/>
-                        <i>
-                            -(Year 11 student, August 2023)
-                        </i>
+                        <span className={"tag"}>Year 11 student, August 2023</span>
                     </p>,
 
                     <p>
@@ -106,9 +100,7 @@ export default function Home():React.ReactElement {
                         great session. Your work on lower attaining students is of particular interest. Thanks again for
                         the talk, it was really helpful."
                         <br/>
-                        <i>
-                            -(Attendee at the Historical Association Conference in Birmingham, May 2024)
-                        </i>
+                        <span className={"tag"}>Attendee at the Historical Association Conference in Birmingham, May 2024</span>
                     </p>,
 
                     <p>
@@ -118,9 +110,7 @@ export default function Home():React.ReactElement {
                         Frank's story would be excellent for this. I really liked your approach and will now implement
                         something similar in our school."
                         <br/>
-                        <i>
-                            -(Attendee Schools History Project Online Conference, February 2024)
-                        </i>
+                        <span className={"tag"}>Attendee Schools History Project Online Conference, February 2024</span>
                     </p>,
                 ]} />
             </GenericMarkupSection>
