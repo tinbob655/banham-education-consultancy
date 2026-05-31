@@ -71,3 +71,19 @@ h2.sectionTitle {
   padding: 20px 24px;
   background: vars.$color-bg-surface;
 }
+
+//a caravan has horizontally spaced children
+// horizontal scrolling row of items
+.caravan {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  gap: 16px;
+
+  //hide the scrollbar but keep it functional
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
