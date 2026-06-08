@@ -106,4 +106,14 @@ img {
     max-width: $maxSize;
     max-height: $maxSize;
   }
+
+  //used for an image as part of a page header
+  div.pageHeader + & {
+    max-width: 25vw;
+    max-height: 66vh;
+    margin: 50px 20px 20px;
+
+    border-radius: vars.$radius-lg;
+    box-shadow: vars.$shadow-gold;
+  }
 }
