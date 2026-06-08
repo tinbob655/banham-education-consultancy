@@ -50,6 +50,16 @@ figure.pageHeaderImage {
     width: 100%;
   }
 
+  //optional link
+  a > img {
+    transition: transform vars.$transition-spring;
+    z-index: 2;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
   img {
     width: 100%;
     height: auto;

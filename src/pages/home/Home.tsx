@@ -15,6 +15,7 @@ export default function Home():React.ReactElement {
                 image={"/general/banhamAndMayor.jpg"}
                 imageAlt={"Image of Mr Banham receiving an award from the Mayor of Ipswich"}
                 imageCaption={"Ipswich consultant recognised for promotion of maritime town"}
+                imageLink={"https://www.ipswichstar.co.uk/news/26167684.ipswich-consultant-recognised-promotion-maritime-town/"}
                 />
 
             <GenericMarkupSection heading={"Turning potential into reality"}>
