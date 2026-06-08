@@ -1,0 +1,126 @@
+@use '../../scss/variables' as vars;
+
+
+.fancyButton {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 32px;
+  overflow: hidden;
+  cursor: pointer;
+  text-decoration: none !important;
+  border: none;
+  background: transparent;
+  border-radius: vars.$radius-sm;
+
+  //border ring
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: vars.$radius-sm;
+    border: 1px solid rgba(vars.$color-gold-primary, 0.55);
+    transition: border-color vars.$transition-base, box-shadow vars.$transition-base;
+  }
+
+  //metallic sheen that sweeps left-to-right on hover, snaps back instantly on leave
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+            105deg,
+            transparent 25%,
+            rgba(vars.$color-gold-sheen, 0.08) 42%,
+            rgba(vars.$color-gold-sheen, 0.26) 50%,
+            rgba(vars.$color-gold-sheen, 0.08) 58%,
+            transparent 75%
+    );
+    transform: translateX(-150%) skewX(-15deg);
+    transition: transform 0s; //instant snap-back on mouse-out; overridden on hover
+    z-index: 0;
+  }
+
+  &Text {
+    position: relative;
+    z-index: 1;
+    font-family: vars.$font-base;
+    font-size: vars.$font-size-sm;
+    letter-spacing: vars.$letter-spacing-wide;
+    text-transform: uppercase;
+    color: vars.$color-gold-primary;
+    transition: color vars.$transition-base, text-shadow vars.$transition-slow;
+  }
+
+  //arrow is hidden and nudged left at rest — slides in on hover
+  &Arrow {
+    position: relative;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+    transform: translateX(-6px);
+    opacity: 0;
+    transition: transform vars.$transition-spring, opacity vars.$transition-base;
+
+    svg {
+      width: 100%;
+      height: 100%;
+      stroke: vars.$color-gold-sheen;
+    }
+  }
+
+  &:hover {
+    border-bottom: none !important;
+
+    &::before {
+      border-color: rgba(vars.$color-gold-bright, 0.85);
+      box-shadow:
+              0 0 20px rgba(vars.$color-gold-primary, 0.4),     //outer glow
+              inset 0 0 24px rgba(vars.$color-gold-primary, 0.07); //inner warmth
+    }
+
+    &::after {
+      transform: translateX(200%) skewX(-15deg);
+      transition: transform 0.75s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .fancyButtonText {
+      color: vars.$color-gold-sheen;
+      text-shadow: 0 0 16px rgba(vars.$color-gold-bright, 0.5);
+    }
+
+    .fancyButtonArrow {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  &:active {
+    transform: scale(0.97);
+    transition: transform 80ms ease;
+  }
+
+  &:focus-visible {
+    outline: 2px solid vars.$color-gold-bright;
+    outline-offset: 3px;
+  }
+
+  //fancy buttons which are direct descendants of their section should be aligned
+  section.alignLeft > & {
+    display: flex;
+    width: fit-content;
+    margin-right: auto;
+    margin-left: 7.5%;
+  }
+  section.alignRight > &{
+    display: flex;
+    width: fit-content;
+    margin-right: 7.5%;
+    margin-left: auto;
+  }
+}

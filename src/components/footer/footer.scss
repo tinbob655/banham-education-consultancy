@@ -1,0 +1,68 @@
+@use '../../scss/variables' as vars;
+
+
+footer {
+  padding-bottom: 40px;
+}
+
+footer .footerInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 28px 48px 0;
+  gap: 24px;
+
+  @include vars.mobile {
+    flex-direction: column-reverse;
+    align-items: center;
+    padding: 24px 20px 0;
+  }
+
+  //the logo
+  img {
+    height: 64px;
+    width: auto;
+    display: block;
+    opacity: 0.45;
+    transition: opacity vars.$transition-base, filter vars.$transition-base;
+    flex-shrink: 0;
+
+    &:hover {
+      opacity: 0.8;
+      filter: drop-shadow(0 0 6px rgba(vars.$color-gold-primary, 0.35));
+    }
+  }
+}
+
+footer .footerText {
+  text-align: right;
+
+  @include vars.mobile {
+    text-align: center;
+  }
+
+  p {
+    margin: 0;
+    font-size: vars.$font-size-sm;
+    color: vars.$color-text-muted;
+    letter-spacing: vars.$letter-spacing-wide;
+    line-height: vars.$line-height-relaxed;
+
+    & + p {
+      margin-top: 4px;
+    }
+  }
+
+  a {
+    font-size: inherit;
+    color: vars.$color-text-muted;
+    border-bottom-color: rgba(vars.$color-text-muted, 0.3) !important;
+
+    &:hover {
+      color: vars.$color-gold-primary;
+      border-bottom-color: rgba(vars.$color-gold-primary, 0.5) !important;
+    }
+  }
+}

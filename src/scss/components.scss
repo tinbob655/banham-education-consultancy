@@ -1,0 +1,116 @@
+@use './variables' as vars;
+
+
+//cards appear lifted off the page on hover
+div.card {
+  background: vars.$color-bg-surface;
+  border: 1px solid rgba(vars.$color-gold-muted, 0.4);
+  border-radius: vars.$radius-sm;
+  padding: 24px 28px;
+  transition:
+          border-color vars.$transition-base,
+          box-shadow   vars.$transition-base,
+          transform    vars.$transition-base;
+
+  &:hover {
+    border-color: vars.$color-gold-primary;
+    box-shadow: vars.$shadow-gold, vars.$shadow-md;
+    transform: translateY(-2px);
+  }
+}
+
+//small labels / badges
+.tag {
+  display: inline-block;
+  font-family: vars.$font-base;
+  font-size: 0.72rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: vars.$color-gold-primary;
+  background: rgba(vars.$color-gold-primary, 0.07);
+  border: 1px solid rgba(vars.$color-gold-primary, 0.35);
+  border-radius: vars.$radius-sm;
+  padding: 2px 8px;
+  line-height: 1.6;
+
+  section.alignLeft > & {
+    display: block;
+    width: fit-content;
+    margin-left: 7.5%;
+    margin-right: auto;
+  }
+  section.alignRight > & {
+    display: block;
+    width: fit-content;
+    margin-right: 7.5%;
+    margin-left: auto;
+  }
+}
+
+//page-level hero header
+.pageHeader {
+  padding: 48px 0 12px;
+
+  h1 {
+    font-size: clamp(2.4rem, 6vw, 4rem);
+    text-shadow: 0 0 40px rgba(vars.$color-gold-primary, 0.3);
+    letter-spacing: 0.04em;
+    line-height: 1.1;
+    text-align: left;
+  }
+
+  p {
+    text-align: left;
+    margin-top: 8px;
+    opacity: 0.7;
+    font-size: 0.95rem;
+    letter-spacing: 0.04em;
+  }
+}
+
+//section titles
+.section h2,
+h2.sectionTitle {
+  font-size: clamp(1.5rem, 3.5vw, 2.2rem);
+  margin-bottom: 24px;
+  letter-spacing: 0.04em;
+}
+
+//any element that should glow with a gold border
+.glowBox {
+  border: 1px solid rgba(vars.$color-gold-primary, 0.5);
+  box-shadow: vars.$shadow-gold;
+  border-radius: vars.$radius-sm;
+  padding: 20px 24px;
+  background: vars.$color-bg-surface;
+}
+
+//a caravan has horizontally spaced children
+// horizontal scrolling row of items
+.caravan {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  gap: 16px;
+
+  //hide the scrollbar but keep it functional
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  //caravans on mobile go vertically
+  @include vars.mobile {
+    flex-direction: column;
+
+    section.alignLeft > & {
+      align-items: flex-start;
+    }
+    section.alignRight > & {
+      align-items: flex-end;
+    }
+    overflow-x: visible;
+    gap: 8px;
+  }
+}

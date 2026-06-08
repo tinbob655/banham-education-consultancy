@@ -1,0 +1,45 @@
+@use './variables.scss' as vars;
+
+// Get other stylesheets
+@use './text';
+@use './layout';
+@use './animations';
+@use './scrollbar';
+@use './components';
+@use './list';
+
+@mixin noVerticalSpacing {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+body {
+  background-color: vars.$color-bg-deep;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+a {
+  color: vars.$color-gold-primary;
+  cursor: pointer;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(vars.$color-gold-primary, 0.4);
+  transition: color vars.$transition-fast, border-color vars.$transition-fast;
+
+  &:hover {
+    color: vars.$color-gold-bright;
+    border-bottom-color: rgba(vars.$color-gold-bright, 0.6);
+  }
+}
+
+// Images within links should have no spacing
+a img, a canvas {
+  @include noVerticalSpacing;
+}
+
+.noVerticalSpacing {
+  @include noVerticalSpacing;
+}

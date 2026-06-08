@@ -1,0 +1,88 @@
+//colours
+$color-bg-void:        #08070A;
+$color-bg-deep:        #100F13;
+$color-bg-surface:     #18161C;
+$color-bg-elevated:    #221F28;
+$color-bg-overlay:     rgba(8, 7, 10, 0.72);
+
+$color-gold-bright:    #E8C96A;
+$color-gold-primary:   #C9A84C;
+$color-gold-deep:      #9A7328;
+$color-gold-muted:     #6B4F12;
+$color-gold-sheen:     #F5E29B;
+
+$gradient-gold:        linear-gradient(135deg, $color-gold-deep 0%, $color-gold-primary 45%, $color-gold-bright 100%);
+$gradient-gold-subtle: linear-gradient(180deg, rgba($color-gold-primary, 0.12) 0%, rgba($color-gold-primary, 0.0) 100%);
+
+$color-text-primary:   #F0E8D0;
+$color-text-secondary: #A89880;
+$color-text-muted:     #5C5248;
+$color-text-inverse:   #0D0B0E;
+
+$color-success:        #4E9973;
+$color-warning:        #C9943C;
+$color-error:          #A84040;
+
+//font stuff
+$font-heading:   'Cinzel', 'Trajan Pro', serif;
+$font-subheading:     'Cormorant Garamond', 'Garamond', serif;
+$font-base:      'Jost', 'Gill Sans', sans-serif;
+
+$font-size-xs:   0.75rem;
+$font-size-sm:   0.875rem;
+$font-size-base: 1rem;
+$font-size-md:   1.125rem;
+$font-size-lg:   1.375rem;
+$font-size-xl:   1.75rem;
+$font-size-2xl:  2.25rem;
+$font-size-3xl:  3rem;
+$font-size-4xl:  4rem;
+
+$font-weight-light:   300;
+$font-weight-regular: 400;
+$font-weight-medium:  500;
+$font-weight-semibold: 600;
+
+$letter-spacing-tight:  -0.02em;
+$letter-spacing-normal:  0em;
+$letter-spacing-wide:    0.08em;
+$letter-spacing-widest:  0.2em;
+
+$line-height-tight:   1.15;
+$line-height-normal:  1.6;
+$line-height-relaxed: 1.8;
+
+
+//borders & radii
+$border-thin:    1px solid rgba($color-gold-muted, 0.4);
+$border-medium:  1px solid rgba($color-gold-primary, 0.6);
+$border-bright:  1px solid $color-gold-bright;
+
+$radius-sm:   4px;
+$radius-md:   8px;
+$radius-lg:   16px;
+$radius-pill: 999px;
+
+
+//shadows & glows
+$shadow-sm:     0 2px 8px rgba(0, 0, 0, 0.6);
+$shadow-md:     0 6px 24px rgba(0, 0, 0, 0.7);
+$shadow-lg:     0 16px 48px rgba(0, 0, 0, 0.8);
+$shadow-gold:   0 0 24px rgba($color-gold-primary, 0.25);   // glow on hover
+$shadow-gold-lg: 0 0 60px rgba($color-gold-bright, 0.18), 0 16px 48px rgba(0, 0, 0, 0.8);
+
+
+//transitions
+$transition-fast:    150ms ease;
+$transition-base:    280ms ease;
+$transition-slow:    480ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+$transition-spring:  400ms cubic-bezier(0.34, 1.56, 0.64, 1);
+
+//mobile overrides
+$breakpoint-mobile: 768px;
+
+@mixin mobile {
+  @media (max-width: $breakpoint-mobile) {
+    @content;
+  }
+}
