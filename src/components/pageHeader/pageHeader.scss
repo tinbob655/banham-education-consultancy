@@ -1,0 +1,75 @@
+@use '../../scss/variables' as vars;
+
+//page-level hero header
+.pageHeader {
+  padding: 48px 0 12px;
+}
+
+.pageHeaderInner {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 48px;
+
+  @include vars.mobile {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+.pageHeaderText {
+  flex: 1;
+
+  h1 {
+    font-size: clamp(2.4rem, 6vw, 4rem);
+    text-shadow: 0 0 40px rgba(vars.$color-gold-primary, 0.3);
+    letter-spacing: 0.04em;
+    line-height: 1.1;
+    text-align: left;
+    margin-left: 0;
+    margin-right: auto;
+  }
+
+  p {
+    text-align: left;
+    margin-top: 8px;
+    margin-left: 0;
+    margin-right: auto;
+    opacity: 0.7;
+    font-size: 0.95rem;
+    letter-spacing: 0.04em;
+  }
+}
+
+figure.pageHeaderImage {
+  flex-shrink: 0;
+  margin: 0;
+  width: clamp(180px, 28%, 320px);
+
+  @include vars.mobile {
+    width: 100%;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+    max-height: 280px;
+    object-fit: cover;
+    object-position: center top; //keeps faces in frame if the photo is tall
+    display: block;
+    border-radius: vars.$radius-lg;
+    box-shadow: vars.$shadow-gold;
+    border: vars.$border-thin;
+  }
+
+  figcaption {
+    margin-top: 10px;
+    text-align: center;
+
+    //override section-alignment rules that would otherwise push the tag sideways
+    .tag {
+      display: inline-block !important;
+      margin: 0 auto !important;
+    }
+  }
+}

@@ -1,5 +1,5 @@
 import React from 'react';
-import PageHeader from "../../components/PageHeader.tsx";
+import PageHeader from "../../components/pageHeader/PageHeader.tsx";
 import GenericMarkupSection from "../../components/GenericMarkupSection.tsx";
 import FancyButton from "../../components/fancyButton/FancyButton.tsx";
 import List from "../../components/list/List.tsx";
@@ -8,7 +8,14 @@ export default function Home():React.ReactElement {
 
     return (
         <React.Fragment>
-            <PageHeader title={"Banham Education Consultancy"} subtitle={"Raising achievement for all"} />
+
+            <PageHeader
+                title={"Banham Education Consultancy"}
+                subtitle={"Raising achievement for all"}
+                image={"/general/banhamAndMayor.jpg"}
+                imageAlt={"Image of Mr Banham receiving an award from the Mayor of Ipswich"}
+                imageCaption={"Ipswich consultant recognised for promotion of maritime town"}
+                />
 
             <GenericMarkupSection heading={"Turning potential into reality"}>
                 <p>

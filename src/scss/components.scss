@@ -47,27 +47,6 @@ div.card {
   }
 }
 
-//page-level hero header
-.pageHeader {
-  padding: 48px 0 12px;
-
-  h1 {
-    font-size: clamp(2.4rem, 6vw, 4rem);
-    text-shadow: 0 0 40px rgba(vars.$color-gold-primary, 0.3);
-    letter-spacing: 0.04em;
-    line-height: 1.1;
-    text-align: left;
-  }
-
-  p {
-    text-align: left;
-    margin-top: 8px;
-    opacity: 0.7;
-    font-size: 0.95rem;
-    letter-spacing: 0.04em;
-  }
-}
-
 //section titles
 .section h2,
 h2.sectionTitle {

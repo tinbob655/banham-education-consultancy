@@ -1,5 +1,5 @@
 import React from 'react';
-import PageHeader from "../../components/PageHeader.tsx";
+import PageHeader from "../../components/pageHeader/PageHeader.tsx";
 import staffData from './staffData.json' with {type: 'json'}
 import type {staffMember} from "./staffMember";
 import GenericMarkupSection from "../../components/GenericMarkupSection.tsx";
