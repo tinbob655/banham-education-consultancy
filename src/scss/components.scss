@@ -114,3 +114,17 @@ h2.sectionTitle {
     gap: 8px;
   }
 }
+
+//images
+img {
+  background-color: transparent;
+
+  &.profilePicture {
+    border-radius: 50%;
+    border: 0.33rem solid vars.$color-bg-elevated;
+
+    $maxSize: 5rem;
+    max-width: $maxSize;
+    max-height: $maxSize;
+  }
+}

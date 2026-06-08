@@ -1,0 +1,26 @@
+
+//groups profile picture and caption
+div.aboutProfilePictureWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.66rem;
+  align-items: center;
+
+  .tag {
+    text-align: center;
+    white-space: nowrap;
+  }
+}
+
+div.staffMemberWrapper {
+  display: flex;
+  flex-direction: row;
+}
+
+div.aboutDescriptionWrapper {
+
+  > .tag {
+    margin-left: 7.5%;
+    margin-right: auto;
+  }
+}
