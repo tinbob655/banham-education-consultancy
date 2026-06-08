@@ -1,8 +1,8 @@
 import React from 'react';
-import PageHeader from "../../general/PageHeader.tsx";
+import PageHeader from "../../components/PageHeader.tsx";
 import staffData from './staffData.json' with {type: 'json'}
 import type {staffMember} from "./staffMember";
-import GenericMarkupSection from "../../general/GenericMarkupSection.tsx";
+import GenericMarkupSection from "../../components/GenericMarkupSection.tsx";
 
 export default function About():React.ReactElement {
 

@@ -2,14 +2,14 @@ import React from 'react';
 import {Route, Routes} from 'react-router';
 
 //import all pages
-import Home from "./components/pages/home/Home.tsx";
-import About from "./components/pages/about/About.tsx";
-import Admin from "./components/pages/admin/Admin.tsx";
-import General from "./components/pages/general/General.tsx";
-import History from "./components/pages/history/History.tsx";
-import Resources from "./components/pages/resources/Resources.tsx";
-import Students from "./components/pages/students/Students.tsx";
-import Tutoring from "./components/pages/tutoring/Tutoring.tsx";
+import Home from "./pages/home/Home.tsx";
+import About from "./pages/about/About.tsx";
+import Admin from "./pages/admin/Admin.tsx";
+import General from "./pages/general/General.tsx";
+import History from "./pages/history/History.tsx";
+import Resources from "./pages/resources/Resources.tsx";
+import Students from "./pages/students/Students.tsx";
+import Tutoring from "./pages/tutoring/Tutoring.tsx";
 
 const routeInfo:[string, React.ComponentType][] = [
     ['', Home],

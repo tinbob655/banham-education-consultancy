@@ -1,8 +1,8 @@
 import React from 'react';
-import PageHeader from "../../general/PageHeader.tsx";
-import GenericMarkupSection from "../../general/GenericMarkupSection.tsx";
-import List from "../../general/list/List.tsx";
-import InterestedButton from "../../general/InterestedButton.tsx";
+import PageHeader from "../../components/PageHeader.tsx";
+import GenericMarkupSection from "../../components/GenericMarkupSection.tsx";
+import List from "../../components/list/List.tsx";
+import InterestedButton from "../../components/InterestedButton.tsx";
 
 export default function Tutoring():React.ReactElement {
 

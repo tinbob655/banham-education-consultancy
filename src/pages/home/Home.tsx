@@ -1,8 +1,8 @@
 import React from 'react';
-import PageHeader from "../../general/PageHeader.tsx";
-import GenericMarkupSection from "../../general/GenericMarkupSection.tsx";
-import FancyButton from "../../general/fancyButton/FancyButton.tsx";
-import List from "../../general/list/List.tsx";
+import PageHeader from "../../components/PageHeader.tsx";
+import GenericMarkupSection from "../../components/GenericMarkupSection.tsx";
+import FancyButton from "../../components/fancyButton/FancyButton.tsx";
+import List from "../../components/list/List.tsx";
 
 export default function Home():React.ReactElement {
 

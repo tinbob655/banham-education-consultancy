@@ -1,6 +1,6 @@
 import React from 'react';
-import PageHeader from "../../general/PageHeader.tsx";
-import GenericMarkupSection from "../../general/GenericMarkupSection.tsx";
+import PageHeader from "../../components/PageHeader.tsx";
+import GenericMarkupSection from "../../components/GenericMarkupSection.tsx";
 import Blog from "./Blog.tsx";
 import RecommendedItems from "./RecommendedItems.tsx";
 
