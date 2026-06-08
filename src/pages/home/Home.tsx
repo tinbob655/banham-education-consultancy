@@ -8,7 +8,11 @@ export default function Home():React.ReactElement {
 
     return (
         <React.Fragment>
-            <PageHeader title={"Banham Education Consultancy"} subtitle={"Raising achievement for all"} />
+
+            <div className={"caravan"}>
+                <PageHeader title={"Banham Education Consultancy"} subtitle={"Raising achievement for all"} />
+                <img src={"/general/banhamAndMayor.jpg"} alt={"Image of Mr Banham receiving an award from the Mayor of Ipswich"} />
+            </div>
 
             <GenericMarkupSection heading={"Turning potential into reality"}>
                 <p>
