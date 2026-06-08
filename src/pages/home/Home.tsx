@@ -24,7 +24,7 @@ export default function Home():React.ReactElement {
                 </div>
             </GenericMarkupSection>
 
-            <GenericMarkupSection heading={"What's on offer?"} left>
+            <GenericMarkupSection heading={"What's on offer?"}>
                 <List items={[
                     `Bespoke support for trusts and schools in developing a rigorous History curriculum that delivers
                      excellent outcomes for all students.`,
@@ -52,7 +52,7 @@ export default function Home():React.ReactElement {
                 <FancyButton text={"Find out more"} path={"/about"} />
             </GenericMarkupSection>
 
-            <GenericMarkupSection heading={"Our blog"} left>
+            <GenericMarkupSection heading={"Our blog"}>
                 <p>
                     <b>
                         Keep caught up with us

@@ -20,7 +20,7 @@ export default function Resources():React.ReactElement {
             </GenericMarkupSection>
 
             {/*recommended resources section*/}
-            <GenericMarkupSection heading={"Recommended resources"} left>
+            <GenericMarkupSection heading={"Recommended resources"}>
                 <p>
                     There are many resources which we at Banham Education Consultancy would recommend to all students
                     in order to enrich their studies. These are:

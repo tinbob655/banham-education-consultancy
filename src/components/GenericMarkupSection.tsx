@@ -2,13 +2,11 @@ import React, {type RefObject, useEffect, useRef} from 'react';
 
 interface params {
     heading: string;
-    left?:boolean;
     children: React.ReactNode;
 }
 
-export default function GenericMarkupSection({heading, left, children}:params):React.ReactElement {
+export default function GenericMarkupSection({heading, children}:params):React.ReactElement {
 
-    const alignment:string = left ? "alignLeft" : "alignRight";
     const ref:RefObject<HTMLElement|null> = useRef<HTMLElement>(null);
 
     useEffect(() => {
@@ -33,7 +31,7 @@ export default function GenericMarkupSection({heading, left, children}:params):R
     }, []);
 
     return (
-        <section className={alignment} ref={ref}>
+        <section className={"alignLeft"} ref={ref}>
             <h2 className={"sectionTitle"}>
                 {heading}
             </h2>

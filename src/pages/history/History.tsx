@@ -28,7 +28,7 @@ export default function History():React.ReactElement {
                 </p>
             </GenericMarkupSection>
 
-            <GenericMarkupSection heading={"Bespoke support for History Departments and Trusts"} left>
+            <GenericMarkupSection heading={"Bespoke support for History Departments and Trusts"}>
                 <p>
                     Please get in touch to discuss what training or support you need. The menu below provides an
                     overview of support that has been offered to schools and trusts in the past however we are

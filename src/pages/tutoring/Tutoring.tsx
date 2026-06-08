@@ -34,7 +34,7 @@ export default function Tutoring():React.ReactElement {
                 <InterestedButton/>
             </GenericMarkupSection>
 
-            <GenericMarkupSection heading={"Expert subject specific tutoring"} left>
+            <GenericMarkupSection heading={"Expert subject specific tutoring"}>
                 <p>
                     We are confident that our elite level tutoring sessions will significantly improve results for most
                     students. However, sometimes students and their parents may be looking to improve their exam
