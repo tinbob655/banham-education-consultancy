@@ -1,7 +1,7 @@
 import React from 'react';
 import PageHeader from "../../components/pageHeader/PageHeader.tsx";
 import GenericMarkupSection from "../../components/GenericMarkupSection.tsx";
-import Blog from "./Blog.tsx";
+import Blogs from "./blogs/Blogs.tsx";
 import RecommendedItems from "./RecommendedItems.tsx";
 
 export default function Resources():React.ReactElement {
@@ -16,7 +16,7 @@ export default function Resources():React.ReactElement {
                     We try to keep an up-to-date blog with frequent posts to keep you informed on what's happening here
                     at Banham Education Consultancy. Take a look:
                 </p>
-                <Blog/>
+                <Blogs/>
             </GenericMarkupSection>
 
             {/*recommended resources section*/}

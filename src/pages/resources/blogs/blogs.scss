@@ -1,0 +1,140 @@
+@use '../../../scss/variables' as vars;
+
+//outer list of blogs
+.blogList {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin-top: 8px;
+}
+
+//individual blog
+.blogCard {
+  display: flex;
+  flex-direction: column;
+
+  background: vars.$color-bg-surface;
+  border: vars.$border-thin;
+  border-radius: vars.$radius-md;
+  overflow: hidden;                 //clips the image to the rounded corners
+  transition:
+          border-color vars.$transition-base,
+          box-shadow   vars.$transition-base,
+          transform    vars.$transition-base;
+
+  &:hover {
+    border-color: vars.$color-gold-primary;
+    box-shadow: vars.$shadow-gold, vars.$shadow-md;
+    transform: translateY(-2px);
+  }
+}
+
+//image
+.blogCard__imageLink {
+  float: left;
+  width: 260px;
+  margin-left: 12px;
+  margin-right: 20px;
+  border-radius: vars.$radius-md;
+
+  display: block;
+  border-bottom: none !important;   //override global <a> underline
+  overflow: hidden;
+
+  @include vars.mobile {
+    float: none;
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 16px;
+    height: 200px;
+  }
+}
+
+.blogCard__image {
+  display: block;
+  width: 100%;
+  height: auto;
+
+  transition: transform vars.$transition-slow, filter vars.$transition-slow;
+
+  .blogCard:hover & {
+    transform: scale(1.04);
+    filter: brightness(1.08);
+  }
+}
+
+//the content of a blog
+.blogCard__body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 28px 32px;
+
+  @include vars.mobile {
+    padding: 20px;
+  }
+}
+
+.blogCard__date {
+  font-family: vars.$font-base;
+  font-size: vars.$font-size-xs;
+  letter-spacing: vars.$letter-spacing-widest;
+  text-transform: uppercase;
+  color: vars.$color-gold-deep;
+  margin: 0;
+}
+
+.blogCard__title {
+  font-family: vars.$font-heading;
+  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+  color: vars.$color-gold-bright;
+  font-weight: 400;
+  margin: 0;
+  cursor: default;        //overrides the global h3 pointer cursor
+
+  //disable the global h3 hover scale — cards do their own hover
+  &:hover {
+    transform: none;
+    color: vars.$color-gold-bright;
+  }
+}
+
+.blogCard__description {
+  font-family: vars.$font-base;
+  font-size: vars.$font-size-sm;
+  color: vars.$color-text-secondary;
+  line-height: vars.$line-height-relaxed;
+  margin: 0;
+
+  //clamp to ~6 lines until unclamped
+  display: -webkit-box;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+
+  &.unclamped {
+    -webkit-line-clamp: unset;
+    display: block;
+    overflow: visible;
+  }
+}
+
+.blogCard__showMore {
+  margin-right: 0;
+  margin-left: auto;
+  width: fit-content;
+  padding-top: 0;
+  filter: grayscale(0.9);
+}
+
+.blogCard__footer {
+  margin-top: auto;       //pushes the button to the bottom of the card
+  padding-top: 8px;
+}
+
+//if a blog is loading / errored
+.blogStatus {
+  color: vars.$color-text-muted;
+  font-style: italic;
+  text-align: center;
+}
