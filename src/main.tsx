@@ -1,4 +1,4 @@
-import {StrictMode} from 'react'
+import {StrictMode, Suspense} from 'react'
 import {createRoot} from 'react-dom/client'
 import './scss/index.scss';
 import {BrowserRouter} from "react-router";
@@ -10,15 +10,19 @@ import ScrollToTop from "./components/ScrollToTop.tsx";
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <BrowserRouter>
-        <ScrollToTop/>
+        <Suspense fallback={<p>Loading Page...</p>}>
 
-      <Header/>
+              <Header/>
 
-      <div id={"content"}>
-        <AllRoutes/>
-      </div>
+              <div id={"content"}>
+                <AllRoutes/>
+              </div>
 
-      <Footer/>
+              <Footer/>
+
+            <ScrollToTop/>
+
+        </Suspense>
     </BrowserRouter>
   </StrictMode>,
 )

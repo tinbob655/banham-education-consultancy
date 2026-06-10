@@ -1,15 +1,15 @@
-import React from 'react';
+import React, {lazy} from 'react';
 import {Route, Routes} from 'react-router';
 
 //import all pages
-import Home from "./pages/home/Home.tsx";
-import About from "./pages/about/About.tsx";
-import Admin from "./pages/admin/Admin.tsx";
-import General from "./pages/general/General.tsx";
-import History from "./pages/history/History.tsx";
-import Resources from "./pages/resources/Resources.tsx";
-import Students from "./pages/students/Students.tsx";
-import Tutoring from "./pages/tutoring/Tutoring.tsx";
+const Home = lazy(() => import("./pages/home/Home.tsx"));
+const About = lazy(() => import("./pages/about/About.tsx"));
+const Admin = lazy(() => import("./pages/admin/Admin.tsx"));
+const General = lazy(() => import("./pages/general/General.tsx"));
+const History = lazy(() => import("./pages/history/History.tsx"));
+const Resources = lazy(() => import("./pages/resources/Resources.tsx"));
+const Students = lazy(() => import("./pages/students/Students.tsx"));
+const Tutoring = lazy(() => import("./pages/tutoring/Tutoring.tsx"));
 
 const routeInfo:[string, React.ComponentType][] = [
     ['', Home],
