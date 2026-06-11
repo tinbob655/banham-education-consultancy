@@ -21,7 +21,7 @@ export default function TextWrappedImage({imageRight, imageSrc, imageStyles, ima
 
     const imageHTML:React.ReactElement = <img
         src={imageSrc}
-        style={{float: imageRight ? 'right' : 'left', ...imageStyles}}
+        style={imageLinkInfo ? imageStyles : {float: imageRight ? 'right' : 'left', ...imageStyles}}
         alt={alt}
         className={imageClassName}
     />
@@ -34,7 +34,7 @@ export default function TextWrappedImage({imageRight, imageSrc, imageStyles, ima
                 <a
                     href={imageLinkInfo.destination}
                     className={imageLinkInfo.className}
-                    style={imageLinkInfo.style}
+                    style={{float: imageRight ? 'right' : 'left', ...imageLinkInfo.style}}
                     target={"_blank"}>
                     {imageHTML}
                 </a>
