@@ -1,9 +1,11 @@
 import React, {useState} from 'react';
 import type {Blog} from "./blog";
 import FancyButton from "../../../components/fancyButton/FancyButton.tsx";
+import useStorage from "../../../hooks/useStorage.ts";
 
 export default function SingleBlog({ blog }: { blog: Blog }): React.ReactElement {
 
+    const {fileURL, loading} = useStorage(blog.imagePath || null);
     const [clamped, setClamped] = useState<boolean>(true);
 
     return (
@@ -28,14 +30,15 @@ export default function SingleBlog({ blog }: { blog: Blog }): React.ReactElement
                 <div className={"blog__content"}>
 
                     {/*there may be a blog image*/}
-                    {blog.imageUrl && (
+                    {blog.imagePath && (
+                        loading ? <p>Loading image...</p> :
                         <a
                             href={blog.linkPath}
                             style={{cursor: blog.linkPath ? 'pointer' : 'default'}}
                            className="blogCard__imageLink"
                            target="_blank"
                            rel="noreferrer">
-                            <img src={blog.imageUrl}
+                            <img src={fileURL}
                                  alt={blog.title}
                                  className="blogCard__image" />
                         </a>
