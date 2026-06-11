@@ -2,7 +2,6 @@ import React, {useMemo} from 'react';
 import {orderBy, type QueryConstraint} from 'firebase/firestore';
 import useFirestore from '../../../hooks/useFirestore.ts';
 import type {Blog} from './blog';
-import './blogs.scss';
 import SingleBlog from "./SingleBlog.tsx";
 
 //set of blogs
@@ -19,7 +18,7 @@ export default function Blogs(): React.ReactElement {
     if (!data.length) return <p className="blogStatus">No blog posts yet.</p>;
 
     return (
-        <div className="blogList">
+        <div className="resourceList">
             {data.map((blog: Blog):React.ReactElement => (
                 <SingleBlog key={blog.title} blog={blog} />
             ))}

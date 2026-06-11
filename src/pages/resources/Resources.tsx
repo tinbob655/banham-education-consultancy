@@ -2,7 +2,8 @@ import React from 'react';
 import PageHeader from "../../components/pageHeader/PageHeader.tsx";
 import GenericMarkupSection from "../../components/GenericMarkupSection.tsx";
 import Blogs from "./blogs/Blogs.tsx";
-import RecommendedItems from "./RecommendedItems.tsx";
+import RecommendedItems from "./recommended/RecommendedItems.tsx";
+import './resources.scss';
 
 export default function Resources():React.ReactElement {
 

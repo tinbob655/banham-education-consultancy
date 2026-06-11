@@ -1,15 +1,15 @@
-@use '../../../scss/variables' as vars;
+@use '../../scss/variables' as vars;
 
-//outer list of blogs
-.blogList {
+//outer list of resources
+.resourceList {
   display: flex;
   flex-direction: column;
   gap: 32px;
   margin-top: 8px;
 }
 
-//individual blog
-.blogCard {
+//individual resource
+.resourceCard {
   display: flex;
   flex-direction: column;
 
@@ -30,7 +30,7 @@
 }
 
 //image
-.blogCard__imageLink {
+.resourceCard__imageLink {
   float: left;
   width: 260px;
   margin-left: 12px;
@@ -50,21 +50,21 @@
   }
 }
 
-.blogCard__image {
+.resourceCard__image {
   display: block;
   width: 100%;
   height: auto;
 
   transition: transform vars.$transition-slow, filter vars.$transition-slow;
 
-  .blogCard:hover & {
+  .resourceCard:hover & {
     transform: scale(1.04);
     filter: brightness(1.08);
   }
 }
 
-//the content of a blog
-.blogCard__body {
+//the content of a resource
+.resourceCard__body {
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -75,7 +75,7 @@
   }
 }
 
-.blogCard__date {
+.resourceCard__date {
   font-family: vars.$font-base;
   font-size: vars.$font-size-xs;
   letter-spacing: vars.$letter-spacing-widest;
@@ -84,7 +84,7 @@
   margin: 0;
 }
 
-.blogCard__title {
+.resourceCard__title {
   font-family: vars.$font-heading;
   font-size: clamp(1.1rem, 2.5vw, 1.5rem);
   color: vars.$color-gold-bright;
@@ -99,7 +99,7 @@
   }
 }
 
-.blogCard__description {
+.resourceCard__description {
   font-family: vars.$font-base;
   font-size: vars.$font-size-sm;
   color: vars.$color-text-secondary;
@@ -119,7 +119,7 @@
   }
 }
 
-.blogCard__showMore {
+.resourceCard__showMore {
   margin-right: 0;
   margin-left: auto;
   width: fit-content;
@@ -127,13 +127,13 @@
   filter: grayscale(0.9);
 }
 
-.blogCard__footer {
+.resourceCard__footer {
   margin-top: auto;       //pushes the button to the bottom of the card
   padding-top: 8px;
 }
 
-//if a blog is loading / errored
-.blogStatus {
+//if a resource is loading / errored
+.resourceStatus {
   color: vars.$color-text-muted;
   font-style: italic;
   text-align: center;
