@@ -8,10 +8,26 @@ interface Exports<T> {
     error: string|null;
 }
 
+const CACHE_TTL:number = 5 * 60 * 1000;
+
+interface CacheEntry<T> {
+    data: T[];
+    cachedAt: number;
+}
+const cache = new Map<string, CacheEntry<unknown>>();
+
 export default function useFirestore<T>(collectionPath:string, queryConstraints:QueryConstraint[] = []):Exports<T> {
 
-    const [data, setData] = useState<T[]>([]);
-    const [loading, setLoading] = useState<boolean>(true);
+    const [data, setData] = useState<T[]>(() => {
+        const entry = cache.get(collectionPath);
+        if (!entry || Date.now() - entry.cachedAt >= CACHE_TTL) return [];
+        return entry.data as T[];
+    });
+
+    const [loading, setLoading] = useState<boolean>(() => {
+        const entry = cache.get(collectionPath);
+        return !entry || Date.now() - entry.cachedAt >= CACHE_TTL;
+    });
     const [error, setError] = useState<string|null>(null);
 
     //fetch from firestore
@@ -19,6 +35,11 @@ export default function useFirestore<T>(collectionPath:string, queryConstraints:
         let isMounted:boolean = true;
 
         const fetchData = async () => {
+
+            //we might already know the data
+            const entry = cache.get(collectionPath);
+            if (entry && Date.now() - entry.cachedAt < CACHE_TTL) return;
+
             setLoading(true);
             setError(null);
 
@@ -34,6 +55,7 @@ export default function useFirestore<T>(collectionPath:string, queryConstraints:
                         ...doc.data(),
                     })) as T[];
                     setData(docsData);
+                    cache.set(collectionPath, { data: docsData, cachedAt: Date.now() });
                     setLoading(false);
                 }
             }

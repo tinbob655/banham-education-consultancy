@@ -8,12 +8,24 @@ interface Exports {
     error: string|null;
 }
 
+const CACHE_TTL = 5 * 60 * 1000;
+
+interface CacheEntry {
+    url: string;
+    cachedAt: number;
+}
+const cache = new Map<string, CacheEntry>();
+
 export default function useStorage(storagePath: string|null|undefined):Exports {
-    
-    const [state, setState] = useState<Exports> ({
-        fileURL: '',
-        loading: true,
-        error: null,
+
+    const [state, setState] = useState<Exports>(() => {
+        const entry = storagePath ? cache.get(storagePath) : undefined;
+        const valid = !!entry && Date.now() - entry.cachedAt < CACHE_TTL;
+        return {
+            fileURL: valid ? entry!.url : '',
+            loading: !!storagePath && !valid,
+            error: null,
+        };
     });
     
     //fetch the image
@@ -28,11 +40,16 @@ export default function useStorage(storagePath: string|null|undefined):Exports {
                 return;
             }
 
+            //we might already know the file
+            const entry = cache.get(storagePath);
+            if (entry && Date.now() - entry.cachedAt < CACHE_TTL) return;
+
             setState({fileURL: '', loading: true, error: null});
             
             try {
                 const fileRef:StorageReference = ref(storage, storagePath);
                 const url:string = await getDownloadURL(fileRef);
+                cache.set(storagePath, { url, cachedAt: Date.now() });
                 
                 if (isMounted) {
                     setState({fileURL: url, loading: false, error: null});
