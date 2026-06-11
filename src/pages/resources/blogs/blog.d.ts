@@ -6,5 +6,5 @@ export interface Blog {
     linkPath?: string;
     linkText?: string;
     title: string;
-    imagePath: string;
+    imagePath?: string;
 }
