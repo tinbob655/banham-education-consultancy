@@ -3,6 +3,7 @@ import type {Blog} from "./blog";
 import FancyButton from "../../../components/fancyButton/FancyButton.tsx";
 import useStorage from "../../../hooks/useStorage.ts";
 import ParsedResourceText from "../ParsedResourceText.tsx";
+import TextWrappedImage from "../../../components/TextWrappedImage.tsx";
 
 export default function SingleBlog({ blog }: { blog: Blog }): React.ReactElement {
 
@@ -30,28 +31,39 @@ export default function SingleBlog({ blog }: { blog: Blog }): React.ReactElement
                 {/*main content*/}
                 <div className={"resource__content"}>
 
-                    {/*there may be a blog image*/}
-                    {blog.imagePath && (
+                    {blog.imagePath ? (
                         loading ? <p>Loading image...</p> :
-                        <a
-                            href={blog.linkPath}
-                            style={{cursor: blog.linkPath ? 'pointer' : 'default'}}
-                           className="resourceCard__imageLink"
-                           target="_blank"
-                           rel="noreferrer">
-                            <img src={fileURL}
-                                 alt={blog.title}
-                                 className="resourceCard__image" />
-                        </a>
-                    )}
+                        <TextWrappedImage
+                            imageSrc={fileURL}
+                            alt={blog.title}
+                            imageClassName={"resourceCard__image"}
+                            imageLinkInfo={{
+                                style: {cursor: blog.linkPath ? 'pointer' : 'default'},
+                                className: "resourceCard__imageLink",
+                                destination: blog.linkPath ?? '',
+                            }}
+                        >
 
-                    {/*blog description and expand button*/}
-                    <p className={`resourceCard__description ${!clamped && "unclamped"}`}>
-                        <ParsedResourceText text={blog.description} />
-                    </p>
-                    <div className={"resourceCard__showMore"}>
-                        <FancyButton text={`show ${clamped ? 'more' : 'less'}...`} action={() => setClamped(!clamped)} />
-                    </div>
+                            {/*blog description and expand button*/}
+                            <p className={`resourceCard__description ${!clamped && "unclamped"}`}>
+                                <ParsedResourceText text={blog.description} />
+                            </p>
+                            <div className={"resourceCard__showMore"}>
+                                <FancyButton text={`show ${clamped ? 'more' : 'less'}...`} action={() => setClamped(!clamped)} />
+                            </div>
+                        </TextWrappedImage>
+                    ) : (
+                        <React.Fragment>
+
+                            {/*blog description and expand button*/}
+                            <p className={`resourceCard__description ${!clamped && "unclamped"}`}>
+                                <ParsedResourceText text={blog.description} />
+                            </p>
+                            <div className={"resourceCard__showMore"}>
+                                <FancyButton text={`show ${clamped ? 'more' : 'less'}...`} action={() => setClamped(!clamped)} />
+                            </div>
+                        </React.Fragment>
+                    )}
                 </div>
 
                 {blog.linkPath && (
