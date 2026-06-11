@@ -1,0 +1,22 @@
+@use '../../scss/variables' as vars;
+
+.typewriterCursor {
+  display: inline-block;
+  color: vars.$color-gold-primary;
+  font-weight: 300;
+  margin-left: 1px;
+
+  animation: cursorBlink 0.75s step-end infinite;
+}
+
+@keyframes cursorBlink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+//respect motion preferences
+@media (prefers-reduced-motion: reduce) {
+  .typewriterCursor {
+    animation: none;
+  }
+}

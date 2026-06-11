@@ -2,8 +2,8 @@ import React, {useState} from 'react';
 import type {Blog} from "./blog";
 import FancyButton from "../../../components/fancyButton/FancyButton.tsx";
 import useStorage from "../../../hooks/useStorage.ts";
-import ParsedResourceText from "../ParsedResourceText.tsx";
 import TextWrappedImage from "../../../components/TextWrappedImage.tsx";
+import Typewriter from "../../../components/typewriter/Typewriter.tsx";
 
 export default function SingleBlog({ blog }: { blog: Blog }): React.ReactElement {
 
@@ -45,9 +45,12 @@ export default function SingleBlog({ blog }: { blog: Blog }): React.ReactElement
                         >
 
                             {/*blog description and expand button*/}
-                            <p className={`resourceCard__description ${!clamped && "unclamped"}`}>
-                                <ParsedResourceText text={blog.description} />
-                            </p>
+                            <Typewriter
+                                text={blog.description}
+                                parsed
+                                className={`resourceCard__description ${!clamped && 'unclamped'}`}
+                                speed={5}
+                            />
                             <div className={"resourceCard__showMore"}>
                                 <FancyButton text={`show ${clamped ? 'more' : 'less'}...`} action={() => setClamped(!clamped)} />
                             </div>
@@ -56,9 +59,12 @@ export default function SingleBlog({ blog }: { blog: Blog }): React.ReactElement
                         <React.Fragment>
 
                             {/*blog description and expand button*/}
-                            <p className={`resourceCard__description ${!clamped && "unclamped"}`}>
-                                <ParsedResourceText text={blog.description} />
-                            </p>
+                            <Typewriter
+                                text={blog.description}
+                                parsed
+                                className={`resourceCard__description ${!clamped && 'unclamped'}`}
+                                speed={5}
+                            />
                             <div className={"resourceCard__showMore"}>
                                 <FancyButton text={`show ${clamped ? 'more' : 'less'}...`} action={() => setClamped(!clamped)} />
                             </div>
