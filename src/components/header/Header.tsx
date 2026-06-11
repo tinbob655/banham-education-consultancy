@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
-import {Link, useLocation} from "react-router";
+import {useLocation} from "react-router";
 import Logo from "../Logo.tsx";
 import './header.scss';
+import TransitionLink from "../TransitionLink.tsx";
 
 const pageInfo: [string, string][] = [
     ['', 'Home'],
@@ -30,20 +31,20 @@ export default function Header(): React.ReactElement {
                 <div className="headerInner">
 
                     {/*clicking the logo takes us home*/}
-                    <Link to="/" className="logoWrapper" onClick={() => setMenuOpen(false)}>
-                        <Logo icon />
-                    </Link>
+                    <TransitionLink to={"/"} className={"logoWrapper"} onClick={() => setMenuOpen(false)} >
+                        <Logo icon/>
+                    </TransitionLink>
 
                     {/*used for desktop navigation*/}
                     <nav aria-label="Main navigation">
                         {pageInfo.map(([path, title]):React.ReactElement => (
-                            <Link
+                            <TransitionLink
                                 key={path}
                                 to={`/${path}`}
                                 className={`navLink${isActive(path) ? ' active' : ''}`}
                             >
                                 {title}
-                            </Link>
+                            </TransitionLink>
                         ))}
                     </nav>
 
@@ -65,14 +66,14 @@ export default function Header(): React.ReactElement {
             {menuOpen && (
                 <div className={"mobileMenu"} aria-hidden={!menuOpen}>
                     {pageInfo.map(([path, title]) => (
-                        <Link
+                        <TransitionLink
                             key={path}
                             to={`/${path}`}
                             className={`mobileNavLink${isActive(path) ? ' active' : ''}`}
                             onClick={() => setMenuOpen(false)}
                         >
                             {title}
-                        </Link>
+                        </TransitionLink>
                     ))}
                 </div>
             )}
