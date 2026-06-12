@@ -147,7 +147,7 @@ export default function AddBlogForm(): React.ReactElement {
                         Link button text <span className="optional">(optional)</span>
                     </label>
                     <p className="hint">
-                        Defaults to "Read more" if left blank.
+                        The text the user sees on the link. Defaults to "Read more" if left blank.
                     </p>
                     <input
                         id="blog-linkText"
