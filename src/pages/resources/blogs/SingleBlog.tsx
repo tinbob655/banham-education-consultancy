@@ -74,8 +74,9 @@ export default function SingleBlog({ blog }: { blog: Blog }): React.ReactElement
 
                 {blog.linkPath && (
                     <div className="resourceCard__footer">
-                        <FancyButton text={blog.linkText ?? 'Read more'}
-                                     path={blog.linkPath} />
+                        <FancyButton
+                            text={blog.linkText ?? "Find out more"}
+                            action={() => window.open(blog.linkPath, "_blank")} />
                     </div>
                 )}
             </div>
