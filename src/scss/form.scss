@@ -1,0 +1,191 @@
+@use './variables' as vars;
+
+.standard-form {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  width: 100%;
+
+  a, code {
+    font-size: inherit;
+    color: vars.$color-gold-deep;
+    border-bottom: none !important;
+  }
+
+  //side-by-side inputs
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+
+    @include vars.mobile {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  //wraps an input & label
+  .form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+
+    label {
+      font-family: vars.$font-base;
+      font-size: vars.$font-size-sm;
+      font-weight: vars.$font-weight-medium;
+      letter-spacing: vars.$letter-spacing-wide;
+      text-transform: uppercase;
+      color: vars.$color-text-secondary;
+
+      .required {
+        color: vars.$color-error;
+        margin-left: 2px;
+      }
+
+      .optional {
+        color: vars.$color-text-muted;
+        font-size: vars.$font-size-xs;
+        text-transform: none;
+        letter-spacing: normal;
+        font-weight: vars.$font-weight-regular;
+        margin-left: 4px;
+      }
+    }
+
+    .hint {
+      font-family: vars.$font-base;
+      font-size: vars.$font-size-xs;
+      color: vars.$color-text-muted;
+      margin: 0;
+      line-height: vars.$line-height-normal;
+
+      code {
+        font-size: inherit;
+        color: vars.$color-gold-deep;
+        background: rgba(vars.$color-gold-primary, 0.06);
+        border: 1px solid rgba(vars.$color-gold-primary, 0.18);
+        border-radius: vars.$radius-sm;
+        padding: 1px 5px;
+      }
+    }
+
+    input:not([type="file"]),
+    textarea {
+      width: 100%;
+      box-sizing: border-box;
+      background: vars.$color-bg-elevated;
+      border: 1px solid rgba(vars.$color-gold-muted, 0.4);
+      border-radius: vars.$radius-sm;
+      color: vars.$color-text-primary;
+      font-family: vars.$font-base;
+      font-size: vars.$font-size-base;
+      padding: 10px 14px;
+      transition: border-color vars.$transition-base, box-shadow vars.$transition-base;
+      outline: none;
+
+      &::placeholder {
+        color: vars.$color-text-muted;
+      }
+
+      &:focus {
+        border-color: rgba(vars.$color-gold-primary, 0.7);
+        box-shadow: 0 0 0 2px rgba(vars.$color-gold-primary, 0.12);
+      }
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 120px;
+      line-height: vars.$line-height-relaxed;
+    }
+
+    input[type="file"] {
+      font-family: vars.$font-base;
+      font-size: vars.$font-size-sm;
+      color: vars.$color-text-secondary;
+      cursor: pointer;
+
+      &::file-selector-button {
+        background: vars.$color-bg-elevated;
+        border: 1px solid rgba(vars.$color-gold-primary, 0.45);
+        border-radius: vars.$radius-sm;
+        color: vars.$color-gold-primary;
+        font-family: vars.$font-base;
+        font-size: vars.$font-size-xs;
+        letter-spacing: vars.$letter-spacing-wide;
+        text-transform: uppercase;
+        padding: 6px 14px;
+        margin-right: 12px;
+        cursor: pointer;
+        transition: border-color vars.$transition-fast, color vars.$transition-fast;
+
+        &:hover {
+          border-color: vars.$color-gold-bright;
+          color: vars.$color-gold-bright;
+        }
+      }
+    }
+
+    .file-name {
+      font-family: vars.$font-base;
+      font-size: vars.$font-size-xs;
+      color: vars.$color-gold-deep;
+      letter-spacing: vars.$letter-spacing-wide;
+    }
+  }
+
+  button[type="submit"] {
+    align-self: flex-start;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    padding: 12px 32px;
+    background: transparent;
+    border: 1px solid rgba(vars.$color-gold-primary, 0.55);
+    border-radius: vars.$radius-sm;
+    cursor: pointer;
+    overflow: hidden;
+    transition: border-color vars.$transition-base, box-shadow vars.$transition-base, color vars.$transition-base;
+    font-family: vars.$font-base;
+    font-size: vars.$font-size-sm;
+    letter-spacing: vars.$letter-spacing-wide;
+    text-transform: uppercase;
+    color: vars.$color-gold-primary;
+
+    &:hover:not(:disabled) {
+      border-color: rgba(vars.$color-gold-bright, 0.85);
+      box-shadow: 0 0 20px rgba(vars.$color-gold-primary, 0.4);
+      color: vars.$color-gold-sheen;
+    }
+
+    &:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+    }
+
+    &:active:not(:disabled) {
+      transform: scale(0.97);
+    }
+  }
+
+  //feedback
+  .status-message {
+    font-family: vars.$font-base;
+    font-size: vars.$font-size-sm;
+    margin: 0;
+    padding: 10px 14px;
+    border-radius: vars.$radius-sm;
+
+    &.success {
+      color: vars.$color-success;
+      background: rgba(vars.$color-success, 0.07);
+      border: 1px solid rgba(vars.$color-success, 0.3);
+    }
+
+    &.error {
+      color: vars.$color-error;
+      background: rgba(vars.$color-error, 0.07);
+      border: 1px solid rgba(vars.$color-error, 0.3);
+    }
+  }
+}
