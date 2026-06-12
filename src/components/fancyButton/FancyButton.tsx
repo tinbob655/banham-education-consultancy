@@ -2,21 +2,31 @@ import React from 'react';
 import {useNavigate} from 'react-router';
 import './fancyButton.scss';
 
-interface params {
+
+interface Params {
     text: string;
     path?: string;
     action?: () => void;
+    isSubmit?: boolean;
 }
 
-export default function FancyButton({ text, path, action }: params): React.ReactElement {
+export default function FancyButton({ text, path, action, isSubmit }: Params): React.ReactElement {
 
     const navigate = useNavigate();
 
-    if (!path && !action) throw new Error("A fancy button needs functionality");
-    if (path && action) throw new Error("A fancy button cannot have a path and a function");
 
-    //markup to go in the button
-    const inner:React.ReactElement = (
+    if (!path && !action && !isSubmit) {
+        throw new Error("A fancy button needs functionality (path, action, or isSubmit)");
+    }
+    if (path && (action || isSubmit)) {
+        throw new Error("A fancy button cannot have a path alongside an action or isSubmit");
+    }
+    if (action && isSubmit) {
+        throw new Error("A submit button should not have a custom click action; handle it via the form's onSubmit instead.");
+    }
+
+    //inner button content
+    const inner: React.ReactElement = (
         <React.Fragment>
             <span className="fancyButtonText">{text}</span>
             <span className="fancyButtonArrow">
@@ -25,10 +35,10 @@ export default function FancyButton({ text, path, action }: params): React.React
                 </svg>
             </span>
         </React.Fragment>
-    )
+    );
 
-    //fire when the user clicks the button
-    function handleClick():void {
+    //action / path handling
+    function handleClick(): void {
         if (path) {
             navigate(path);
         }
@@ -37,6 +47,7 @@ export default function FancyButton({ text, path, action }: params): React.React
         }
     }
 
+    //link
     if (path) {
         return (
             <a href={path} className="fancyButton" onClick={(e) => { e.preventDefault(); navigate(path); }}>
@@ -45,8 +56,18 @@ export default function FancyButton({ text, path, action }: params): React.React
         );
     }
 
-    else return (
-        <button className="fancyButton" onClick={handleClick}>
+    //submit
+    if (isSubmit) {
+        return (
+            <button type="submit" className="fancyButton">
+                {inner}
+            </button>
+        );
+    }
+
+    //action
+    return (
+        <button type="button" className="fancyButton" onClick={handleClick}>
             {inner}
         </button>
     );
