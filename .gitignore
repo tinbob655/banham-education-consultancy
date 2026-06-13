@@ -13,6 +13,7 @@ dist-ssr
 *.local
 private
 .firebase
+stats.html
 
 #env
 .env
