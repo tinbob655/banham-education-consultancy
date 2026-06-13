@@ -5,6 +5,7 @@ import type {staffMember} from "./staffMember";
 import GenericMarkupSection from "../../components/GenericMarkupSection.tsx";
 import InterestedButton from "../../components/InterestedButton.tsx";
 import './aboutStyles.scss';
+import TextWrappedImage from "../../components/textWrappedImage/TextWrappedImage.tsx";
 
 export default function About():React.ReactElement {
 
@@ -18,24 +19,19 @@ export default function About():React.ReactElement {
                 const last:boolean = index === staffData.length - 1;
                 return (
                     <GenericMarkupSection heading={`${staffMember.name}: ${staffMember.qualifications ?? ''}`}>
-                        <div className={"staffMemberWrapper"}>
 
-                            {/*description*/}
-                            <div className={"aboutDescriptionWrapper"}>
-                                <span className={"tag"}>{staffMember.subject}</span>
-                                <p style={{whiteSpace: 'pre-wrap'}}>
-                                    {staffMember.description}
-                                </p>
-                            </div>
-
-                            {/*profile picture*/}
-                            <div className={"aboutProfilePictureWrapper"}>
-                                <img className={"profilePicture"} src={staffMember.profileImagePath} alt={`Image of${staffMember.name}`} />
-                                <span className={"tag"}>
-                                    {staffMember.name}
-                                </span>
-                            </div>
-                        </div>
+                        {/*description & profile picture*/}
+                        <TextWrappedImage
+                            imageClassName={"profilePicture"}
+                            imageSrc={staffMember.profileImagePath}
+                            alt={`Image of ${staffMember.name}.`}
+                            imageRight
+                            caption={staffMember.name}
+                        >
+                            <p style={{whiteSpace: 'pre-wrap'}}>
+                                {staffMember.description}
+                            </p>
+                        </TextWrappedImage>
 
                         {/*interested button on last staff member*/}
                         {last && <InterestedButton/>}
