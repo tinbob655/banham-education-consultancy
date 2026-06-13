@@ -10,23 +10,22 @@ import Loading from "./components/Loading.tsx";
 import {AuthProvider} from "./context/AuthContext.tsx";
 
 createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <BrowserRouter>
-        <Suspense fallback={<Loading/>}>
+    <StrictMode>
+        <BrowserRouter>
             <AuthProvider>
 
-                  <Header/>
+                <Header/>
 
-                  <div id={"content"}>
-                    <AllRoutes/>
-                  </div>
+                <div id={"content"}>
+                    <Suspense fallback={<Loading/>}>
+                        <AllRoutes/>
+                    </Suspense>
+                </div>
 
-                  <Footer/>
+                <Footer/>
 
                 <ScrollToTop/>
-
             </AuthProvider>
-        </Suspense>
-    </BrowserRouter>
-  </StrictMode>,
+        </BrowserRouter>
+    </StrictMode>,
 )

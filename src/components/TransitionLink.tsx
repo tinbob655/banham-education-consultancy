@@ -1,4 +1,4 @@
-import React, {useTransition} from 'react';
+import React, {useEffect, useTransition} from 'react';
 import {useNavigate} from 'react-router';
 
 interface params {
@@ -8,9 +8,15 @@ interface params {
     children: React.ReactNode;
 }
 
+
 export default function TransitionLink({ to, className, onClick, children }: params): React.ReactElement {
     const navigate = useNavigate();
-    const [, startTransition] = useTransition();
+    const [isPending, startTransition] = useTransition();
+
+    //if we are loading then apply some scss
+    useEffect(() => {
+        document.documentElement.classList.toggle('nav-loading', isPending);
+    }, [isPending]);
 
     function handleClick(e: React.MouseEvent): void {
         e.preventDefault();

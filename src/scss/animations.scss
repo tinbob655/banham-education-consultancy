@@ -97,3 +97,38 @@ section {
     transition: none;
   }
 }
+
+
+//loading bar that sweeps across the top during page transitions
+html::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  width: 45%;
+  background: vars.$gradient-gold;
+  box-shadow: 0 0 8px rgba(vars.$color-gold-primary, 0.7);
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateX(-110%);
+}
+
+html.nav-loading::before {
+  opacity: 1;
+  animation: navLoadingSlide 0.85s ease-in-out infinite;
+}
+
+@keyframes navLoadingSlide {
+  from { transform: translateX(-110%); }
+  to   { transform: translateX(260%); }
+}
+
+//if the user prefers reduced motion don't animate the loading bar
+@media (prefers-reduced-motion: reduce) {
+  html.nav-loading::before {
+    animation: none;
+    opacity: 0;
+  }
+}
