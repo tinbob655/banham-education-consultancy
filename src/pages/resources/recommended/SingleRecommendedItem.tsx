@@ -2,7 +2,7 @@ import React from 'react';
 import type {RecommendedItem} from "./recommendedItem";
 import ParsedResourceText from "../ParsedResourceText.tsx";
 import useStorage from "../../../hooks/useStorage.ts";
-import TextWrappedImage from "../../../components/TextWrappedImage.tsx";
+import TextWrappedImage from "../../../components/textWrappedImage/TextWrappedImage.tsx";
 
 interface Params {
     item: RecommendedItem;

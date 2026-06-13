@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import type {Blog} from "./blog";
 import FancyButton from "../../../components/fancyButton/FancyButton.tsx";
 import useStorage from "../../../hooks/useStorage.ts";
-import TextWrappedImage from "../../../components/TextWrappedImage.tsx";
+import TextWrappedImage from "../../../components/textWrappedImage/TextWrappedImage.tsx";
 import Typewriter from "../../../components/typewriter/Typewriter.tsx";
 
 export default function SingleBlog({ blog }: { blog: Blog }): React.ReactElement {
