@@ -83,13 +83,24 @@
   margin: 0;
 }
 
+.resourceCard__title__wrapper {
+  text-decoration: underline;
+  border-bottom: none;
+  color: vars.$color-gold-primary !important;
+
+  transition: transform vars.$transition-base;
+  transform-origin: left;
+  &:hover {
+    transform: scale(1.06, 1.03);
+  }
+}
+
 .resourceCard__title {
   font-family: vars.$font-heading;
   font-size: clamp(1.1rem, 2.5vw, 1.5rem);
   color: vars.$color-gold-bright;
   font-weight: 400;
   margin: 0;
-  cursor: default;        //overrides the global h3 pointer cursor
 
   //disable the global h3 hover scale — cards do their own hover
   &:hover {

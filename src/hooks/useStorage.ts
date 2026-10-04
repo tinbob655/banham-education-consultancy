@@ -52,7 +52,11 @@ export default function useStorage(storagePath: string|null|undefined):Exports {
                 cache.set(storagePath, { url, cachedAt: Date.now() });
                 
                 if (isMounted) {
-                    setState({fileURL: url, loading: false, error: null});
+                    setState({
+                        fileURL: url,
+                        loading: false,
+                        error: url ? null : `Could not fetch file with name: ${storagePath}`
+                    });
                 }
             }
             catch (error) {
